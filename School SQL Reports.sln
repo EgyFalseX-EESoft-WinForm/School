@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "StudentReports", "SSRS Projects\StudentReports\StudentReports.rptproj", "{27C1C312-06AE-46FA-84B2-1B0B5CCD963F}"
 EndProject
 Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "EmployeeReports", "SSRS Projects\EmployeeReports\EmployeeReports.rptproj", "{94E7D2B5-DFB9-419B-9DAA-C8BCDD4DCD53}"

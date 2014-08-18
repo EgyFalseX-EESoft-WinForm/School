@@ -42,6 +42,8 @@ namespace SchoolWeeklyPeriods
                 item.SmallImageIndex = -1;
             foreach (NavBarItem item in navBarControlReport.Items)
                 item.SmallImageIndex = -1;
+            foreach (NavBarItem item in navBarControlReport2.Items)
+                item.SmallImageIndex = -1;
         }
         private void AddRemoveMenuItem(string RoleID, string MenuName, string Selecting, string Inserting, string Updateing, string Deleting)
         {

@@ -113,6 +113,11 @@
             this.navBarItemTimeUserRoles = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemTimeAppOptions = new DevExpress.XtraNavBar.NavBarItem();
             this.panelContainer2 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.DPReport2 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.controlContainer7 = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.navBarControlReport2 = new DevExpress.XtraNavBar.NavBarControl();
+            this.navBarGroup10 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItemTimeXRepTimeAllTable = new DevExpress.XtraNavBar.NavBarItem();
             this.DPQuery = new DevExpress.XtraBars.Docking.DockPanel();
             this.controlContainer2 = new DevExpress.XtraBars.Docking.ControlContainer();
             this.navBarControlQry = new DevExpress.XtraNavBar.NavBarControl();
@@ -153,6 +158,9 @@
             this.controlContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlPriv)).BeginInit();
             this.panelContainer2.SuspendLayout();
+            this.DPReport2.SuspendLayout();
+            this.controlContainer7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControlReport2)).BeginInit();
             this.DPQuery.SuspendLayout();
             this.controlContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlQry)).BeginInit();
@@ -504,7 +512,7 @@
             this.DPResult.ID = new System.Guid("abdfe4d0-1d6a-4f6b-abc2-985fb9d484f3");
             this.DPResult.Location = new System.Drawing.Point(4, 23);
             this.DPResult.Name = "DPResult";
-            this.DPResult.OriginalSize = new System.Drawing.Size(200, 200);
+            this.DPResult.OriginalSize = new System.Drawing.Size(976, 56);
             this.DPResult.Size = new System.Drawing.Size(976, 56);
             this.DPResult.Text = "نتائج العمليات";
             // 
@@ -536,7 +544,7 @@
             this.DPSkins.ID = new System.Guid("5d027091-716e-4480-919f-6381f5702c5a");
             this.DPSkins.Location = new System.Drawing.Point(4, 23);
             this.DPSkins.Name = "DPSkins";
-            this.DPSkins.OriginalSize = new System.Drawing.Size(200, 200);
+            this.DPSkins.OriginalSize = new System.Drawing.Size(976, 56);
             this.DPSkins.Size = new System.Drawing.Size(976, 56);
             this.DPSkins.TabsScroll = true;
             this.DPSkins.Text = "الاشكال";
@@ -1083,11 +1091,12 @@
             // 
             // panelContainer2
             // 
-            this.panelContainer2.ActiveChild = this.DPQuery;
+            this.panelContainer2.ActiveChild = this.DPReport2;
             this.panelContainer2.Appearance.Options.UseTextOptions = true;
             this.panelContainer2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
             this.panelContainer2.Controls.Add(this.DPQuery);
             this.panelContainer2.Controls.Add(this.DPReport);
+            this.panelContainer2.Controls.Add(this.DPReport2);
             this.panelContainer2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.panelContainer2.FloatVertical = true;
             this.panelContainer2.ID = new System.Guid("80c30b21-965f-4a80-99d9-68f5819e7c1a");
@@ -1098,6 +1107,61 @@
             this.panelContainer2.Tabbed = true;
             this.panelContainer2.TabsScroll = true;
             this.panelContainer2.Text = "panelContainer2";
+            // 
+            // DPReport2
+            // 
+            this.DPReport2.Controls.Add(this.controlContainer7);
+            this.DPReport2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            this.DPReport2.ID = new System.Guid("fa9f2ea7-0605-432a-968d-d3ef69bf36ce");
+            this.DPReport2.Location = new System.Drawing.Point(4, 23);
+            this.DPReport2.Name = "DPReport2";
+            this.DPReport2.OriginalSize = new System.Drawing.Size(200, 200);
+            this.DPReport2.Size = new System.Drawing.Size(192, 451);
+            this.DPReport2.TabText = "تقارير 2";
+            this.DPReport2.Text = "تقارير 2";
+            // 
+            // controlContainer7
+            // 
+            this.controlContainer7.Controls.Add(this.navBarControlReport2);
+            this.controlContainer7.Location = new System.Drawing.Point(0, 0);
+            this.controlContainer7.Name = "controlContainer7";
+            this.controlContainer7.Size = new System.Drawing.Size(192, 451);
+            this.controlContainer7.TabIndex = 0;
+            // 
+            // navBarControlReport2
+            // 
+            this.navBarControlReport2.ActiveGroup = this.navBarGroup10;
+            this.navBarControlReport2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navBarControlReport2.ExplorerBarShowGroupButtons = false;
+            this.navBarControlReport2.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
+            this.navBarGroup10});
+            this.navBarControlReport2.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
+            this.navBarItemTimeXRepTimeAllTable});
+            this.navBarControlReport2.LargeImages = this.imageCollection32;
+            this.navBarControlReport2.Location = new System.Drawing.Point(0, 0);
+            this.navBarControlReport2.Name = "navBarControlReport2";
+            this.navBarControlReport2.OptionsNavPane.ExpandedWidth = 192;
+            this.navBarControlReport2.Size = new System.Drawing.Size(192, 451);
+            this.navBarControlReport2.SmallImages = this.imageCollection32;
+            this.navBarControlReport2.StoreDefaultPaintStyleName = true;
+            this.navBarControlReport2.TabIndex = 10;
+            this.navBarControlReport2.Text = "navBarControl1";
+            // 
+            // navBarGroup10
+            // 
+            this.navBarGroup10.Caption = "التقارير";
+            this.navBarGroup10.Expanded = true;
+            this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemTimeXRepTimeAllTable)});
+            this.navBarGroup10.Name = "navBarGroup10";
+            // 
+            // navBarItemTimeXRepTimeAllTable
+            // 
+            this.navBarItemTimeXRepTimeAllTable.Caption = "الجدول الكامل";
+            this.navBarItemTimeXRepTimeAllTable.LargeImageIndex = 4;
+            this.navBarItemTimeXRepTimeAllTable.Name = "navBarItemTimeXRepTimeAllTable";
+            this.navBarItemTimeXRepTimeAllTable.SmallImageIndex = 4;
+            this.navBarItemTimeXRepTimeAllTable.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemTimeXRepTimeAllTable_LinkClicked);
             // 
             // DPQuery
             // 
@@ -1319,6 +1383,9 @@
             this.controlContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlPriv)).EndInit();
             this.panelContainer2.ResumeLayout(false);
+            this.DPReport2.ResumeLayout(false);
+            this.controlContainer7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControlReport2)).EndInit();
             this.DPQuery.ResumeLayout(false);
             this.controlContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlQry)).EndInit();
@@ -1433,6 +1500,11 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItemTimeEMP_agazat;
         private DevExpress.XtraNavBar.NavBarItem navBarItemTimeTBL_Priority;
         private DevExpress.XtraNavBar.NavBarItem navBarItemTimeCD_AgazaType;
+        private DevExpress.XtraBars.Docking.DockPanel DPReport2;
+        private DevExpress.XtraBars.Docking.ControlContainer controlContainer7;
+        private DevExpress.XtraNavBar.NavBarControl navBarControlReport2;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup10;
+        private DevExpress.XtraNavBar.NavBarItem navBarItemTimeXRepTimeAllTable;
 
     }
 }

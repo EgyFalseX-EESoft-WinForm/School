@@ -24,6 +24,7 @@ namespace SchoolWeeklyPeriods
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
             if (FXFW.SqlDB.LoadSqlDBPath("eschool") && Authentication())
             {
+                Properties.Settings.Default["eschoolConnectionString"] = FXFW.SqlDB.SqlConStr;
                 LoadAppSetting();
                 FXFW.SqlDB.LoadSQLReports();
                 Logger = new FXFW.Logger(FXFW.Logger.LanguageInfo.English, Application.ProductName, Properties.Resources.EESoft, false);
@@ -36,6 +37,7 @@ namespace SchoolWeeklyPeriods
                     MessageBox.Show(ex.Message);
                     Program.Logger.LogThis(null, Application.ProductName, FXFW.Logger.OpType.fail, ex, null, null); 
                 }
+
                 Application.Run(new MainFrm()); 
             }
         }

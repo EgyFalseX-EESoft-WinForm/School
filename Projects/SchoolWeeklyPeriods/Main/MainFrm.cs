@@ -93,6 +93,8 @@ namespace SchoolWeeklyPeriods
                 item.Visible = false;
             foreach (DevExpress.XtraNavBar.NavBarItem item in navBarControlReport.Items)
                 item.Visible = false;
+            foreach (DevExpress.XtraNavBar.NavBarItem item in navBarControlReport2.Items)
+                item.Visible = false;
 
             RoleDetialsTbl = FXFW.SqlDB.LoadDataTable("SELECT RoleDetial.MenuItemName FROM UserRoles INNER JOIN RoleDetial ON UserRoles.RoleId = RoleDetial.RoleID WHERE UserRoles.UserId = " + FXFW.SqlDB.UserInfo.UserID);
 
@@ -131,6 +133,14 @@ namespace SchoolWeeklyPeriods
                     }
                 }
                 foreach (NavBarItem item in navBarControlReport.Items)//report
+                {
+                    if (item.Name.Replace("navBarItem", "") == row["MenuItemName"].ToString())
+                    {
+                        item.Visible = true;
+                        goto nextOne;
+                    }
+                }
+                foreach (NavBarItem item in navBarControlReport2.Items)//report 2
                 {
                     if (item.Name.Replace("navBarItem", "") == row["MenuItemName"].ToString())
                     {
@@ -357,6 +367,11 @@ namespace SchoolWeeklyPeriods
             RepGeneralFrm FrmRepGeneral = new RepGeneralFrm() { MdiParent = this, rptSelectedIndex = (int)NBI.Tag };
             FrmRepGeneral.Show();
         }
+        private void navBarItemTimeXRepTimeAllTable_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            XRepTimeAllTable FrmRepGeneral = new XRepTimeAllTable();
+            Misc.Misc.ShowPrintPreview(FrmRepGeneral);
+        }
         private void navBarItemTimeCD_Asasetime_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
             CodeFrm FrmCode = new CodeFrm(CodeFrm.TableNames.CD_Asasetime) { MdiParent = this, Icon = FXFW.SqlDB.MakeIcon(imageCollection32.Images["CD_Asasetime.png"], 32, false) };
@@ -503,8 +518,14 @@ namespace SchoolWeeklyPeriods
             QryTblAhteatyFrm FrmQryTblAhteaty = new QryTblAhteatyFrm() { MdiParent = this, Icon = FXFW.SqlDB.MakeIcon(imageCollection32.Images["TBLAhteaty.png"], 32, false) };
             FrmQryTblAhteaty.Show();
         }
+
+
         
         #endregion
+
+        
+
+        
 
     }
 }
