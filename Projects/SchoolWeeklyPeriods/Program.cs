@@ -25,6 +25,8 @@ namespace SchoolWeeklyPeriods
             if (FXFW.SqlDB.LoadSqlDBPath("eschool") && Authentication())
             {
                 Properties.Settings.Default["eschoolConnectionString"] = FXFW.SqlDB.SqlConStr;
+                DevExpress.Xpo.XpoDefault.ConnectionString = FXFW.SqlDB.SqlConStr;
+
                 LoadAppSetting();
                 FXFW.SqlDB.LoadSQLReports();
                 Logger = new FXFW.Logger(FXFW.Logger.LanguageInfo.English, Application.ProductName, Properties.Resources.EESoft, false);

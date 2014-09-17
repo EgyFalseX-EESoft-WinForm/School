@@ -234,6 +234,10 @@ namespace SchoolWeeklyPeriods
         {
             DPReport.Visibility = DockVisibility.Visible;
         }
+        private void mbReport2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DPReport2.Visibility = DockVisibility.Visible;
+        }
         private void mbPriv_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             DPPriv.Visibility = DockVisibility.Visible;
@@ -518,14 +522,15 @@ namespace SchoolWeeklyPeriods
             QryTblAhteatyFrm FrmQryTblAhteaty = new QryTblAhteatyFrm() { MdiParent = this, Icon = FXFW.SqlDB.MakeIcon(imageCollection32.Images["TBLAhteaty.png"], 32, false) };
             FrmQryTblAhteaty.Show();
         }
+        private void navBarItemTimeQry01_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            Qry01Frm FrmQryTblAhteaty = new Qry01Frm() { MdiParent = this, Icon = FXFW.SqlDB.MakeIcon(imageCollection32.Images["Qry.png"], 32, false) };
+            FrmQryTblAhteaty.Show();
+        }
 
 
         
         #endregion
-
-        
-
-        
 
     }
 }

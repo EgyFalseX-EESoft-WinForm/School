@@ -80,6 +80,7 @@
             this.LuePlaceShare = new DevExpress.XtraEditors.LookUpEdit();
             this.btnAddShare = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEditEmpID)).BeginInit();
@@ -119,7 +120,7 @@
             this.gridControlData.EmbeddedNavigator.Buttons.Edit.Visible = false;
             this.gridControlData.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
             this.gridControlData.EmbeddedNavigator.Buttons.Remove.Visible = false;
-            this.gridControlData.Location = new System.Drawing.Point(0, 153);
+            this.gridControlData.Location = new System.Drawing.Point(0, 176);
             this.gridControlData.MainView = this.gridViewData;
             this.gridControlData.Name = "gridControlData";
             this.gridControlData.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -132,7 +133,7 @@
             this.repositoryItemGridLookUpEditdaycode,
             this.repositoryItemGridLookUpEdithasa_code,
             this.repositoryItemGridLookUpEditplacecd});
-            this.gridControlData.Size = new System.Drawing.Size(784, 409);
+            this.gridControlData.Size = new System.Drawing.Size(784, 386);
             this.gridControlData.TabIndex = 1;
             this.gridControlData.UseEmbeddedNavigator = true;
             this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -751,11 +752,21 @@
             this.labelControl3.TabIndex = 3;
             this.labelControl3.Text = "المكان";
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(682, 147);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(97, 23);
+            this.btnPrint.TabIndex = 5;
+            this.btnPrint.Text = "طباعة و تصدير";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // TBLTimeTableFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.XtraTabControl1);
             this.Controls.Add(this.pb);
             this.Controls.Add(this.gridControlData);
@@ -850,5 +861,6 @@
         private DevExpress.XtraEditors.LookUpEdit LuePlaceShare;
         private DevExpress.XtraEditors.SimpleButton btnAddShare;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
     }
 }

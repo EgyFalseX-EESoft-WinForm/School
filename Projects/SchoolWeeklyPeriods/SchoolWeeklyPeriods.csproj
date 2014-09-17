@@ -287,6 +287,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Qry\Qry01Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Qry\Qry01Frm.Designer.cs">
+      <DependentUpon>Qry01Frm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Qry\QryTblAhteatyFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -399,6 +405,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Qry\Qry01Frm.resx">
+      <DependentUpon>Qry01Frm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Qry\QryTblAhteatyFrm.resx">
       <DependentUpon>QryTblAhteatyFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -501,6 +510,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlRpt\rdl\TimeTeacherTable.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlRpt\rdl\TimeAllTableTeacher.rdl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

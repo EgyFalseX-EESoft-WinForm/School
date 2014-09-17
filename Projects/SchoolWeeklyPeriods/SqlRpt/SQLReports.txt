@@ -4,4 +4,5 @@
 1;TimeDayTable.rdl;ÇáÇÔÑÇİ Çáíæãí
 1;TimePlanTable.rdl;ãŞÇÑäÉ ÇáÎØå
 1;TimeAllTable.rdl;ÇáÌÏæá ÇáßÇãá
+1;TimeAllTableTeacher.rdl;ÇáÌÏæá ÇáßÇãá ááãÏÑÓíä
 1;TimeTeacherPeriodCountTable.rdl;ÌÏæá ÊæÒíÚ ÇáÍÕÕ

@@ -235,6 +235,7 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl33 = new DevExpress.XtraEditors.LabelControl();
             this.gcOptions = new DevExpress.XtraEditors.GroupControl();
+            this.lblEmpName = new DevExpress.XtraEditors.LabelControl();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.colorEDouble = new DevExpress.XtraEditors.ColorEdit();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
@@ -243,7 +244,6 @@
             this.lblPeriodCount = new DevExpress.XtraEditors.LabelControl();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.LUEEmp = new DevExpress.XtraEditors.LookUpEdit();
-            this.lblEmpName = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gcTable)).BeginInit();
             this.gcTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -4023,6 +4023,14 @@
             this.gcOptions.TabIndex = 0;
             this.gcOptions.Text = "خيــــــارات";
             // 
+            // lblEmpName
+            // 
+            this.lblEmpName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblEmpName.Location = new System.Drawing.Point(172, 40);
+            this.lblEmpName.Name = "lblEmpName";
+            this.lblEmpName.Size = new System.Drawing.Size(0, 13);
+            this.lblEmpName.TabIndex = 5;
+            // 
             // btnPrint
             // 
             this.btnPrint.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -4102,14 +4110,6 @@
             this.LUEEmp.Size = new System.Drawing.Size(217, 20);
             this.LUEEmp.TabIndex = 1;
             this.LUEEmp.EditValueChanged += new System.EventHandler(this.LUEEmp_EditValueChanged);
-            // 
-            // lblEmpName
-            // 
-            this.lblEmpName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblEmpName.Location = new System.Drawing.Point(172, 40);
-            this.lblEmpName.Name = "lblEmpName";
-            this.lblEmpName.Size = new System.Drawing.Size(0, 13);
-            this.lblEmpName.TabIndex = 5;
             // 
             // QryWeekTeacherTableFrm
             // 

@@ -175,7 +175,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!emp_name.Value</Value>
+                              <Value>=Fields!ShortlySaf.Value &amp; " / " &amp; Fields!ShortlyFasl.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -364,7 +364,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!ShortlySaf.Value &amp; " / " &amp; Fields!ShortlyFasl.Value</Value>
+                            <Value>=Fields!emp_name.Value</Value>
                             <Style>
                               <FontSize>12pt</FontSize>
                               <FontWeight>Bold</FontWeight>

@@ -41,6 +41,10 @@
       <Name>TimeTeacherTable.rdl</Name>
       <FullPath>TimeTeacherTable.rdl</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>TimeAllTableTeacher.rdl</Name>
+      <FullPath>TimeAllTableTeacher.rdl</FullPath>
+    </ProjectItem>
   </Reports>
   <Configurations>
     <Configuration>

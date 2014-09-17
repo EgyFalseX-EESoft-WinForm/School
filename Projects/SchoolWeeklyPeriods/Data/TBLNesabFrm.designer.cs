@@ -43,6 +43,7 @@
             this.repositoryItemButtonEditSave = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEditDel = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEditEmpID)).BeginInit();
@@ -55,12 +56,14 @@
             // 
             // gridControlData
             // 
-            this.gridControlData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControlData.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.gridControlData.EmbeddedNavigator.Buttons.Edit.Visible = false;
             this.gridControlData.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
             this.gridControlData.EmbeddedNavigator.Buttons.Remove.Visible = false;
-            this.gridControlData.Location = new System.Drawing.Point(0, 0);
+            this.gridControlData.Location = new System.Drawing.Point(0, 32);
             this.gridControlData.MainView = this.gridViewData;
             this.gridControlData.Name = "gridControlData";
             this.gridControlData.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -69,7 +72,7 @@
             this.repositoryItemGridLookUpEditEmpID,
             this.repositoryItemMemoExEditBigTxt,
             this.repositoryItemCalcEditn0});
-            this.gridControlData.Size = new System.Drawing.Size(784, 362);
+            this.gridControlData.Size = new System.Drawing.Size(784, 330);
             this.gridControlData.TabIndex = 0;
             this.gridControlData.UseEmbeddedNavigator = true;
             this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -241,11 +244,21 @@
             this.repositoryItemButtonEditDel.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEditDel.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEditDel_ButtonClick);
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(675, 3);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(97, 23);
+            this.btnPrint.TabIndex = 1;
+            this.btnPrint.Text = "طباعة و تصدير";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // TBLNesabFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 362);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.gridControlData);
             this.Name = "TBLNesabFrm";
             this.Text = "نصاب المدرسين";
@@ -279,5 +292,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit repositoryItemMemoExEditBigTxt;
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEditn0;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
     }
 }

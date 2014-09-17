@@ -194,8 +194,7 @@ namespace SchoolWeeklyPeriods
             marhala_code, EmpNationalID, EMP_FIRST_NAME, EMP_FATHER_NAME, EMP_FAM_NAME, EMP_FOURTH_NAME, nationaltyId, dyana_code, 
             MaritalStatusId, SubjectId, DepartmentId, EmpJobId, BIRTH_DATE, GENDER_ID, BIRTH_GOV, JOB_STATUS_ID, BIRTH_PLACE, Emp_Address, PHONE_NO, 
             MOBILE_NO, JobDescriptionId, Work_Start_Date, End_Work_Date, qualId, SpecializationId, QualifiedPlaceId, Moaahel_Date, tagned_id, tameen_no, tameen_date1, 
-            betaka_tameen, noview, orderreport, EMPPIC
-            FROM TBL_Emp");
+            betaka_tameen, noview, orderreport, EMPPIC FROM TBL_Emp");
             LUEEmp.Properties.DataSource = Emp;
             //LUEEmp.Properties.DisplayMember = "Emp_Name";
             //LUEEmp.Properties.ValueMember = "EmpID";
@@ -372,7 +371,11 @@ namespace SchoolWeeklyPeriods
             DEtameen_date1.EditValue = row["tameen_date1"];
             Txtbetaka_tameen.Text = row["betaka_tameen"].ToString();
             Txtorderreport.Text = row["orderreport"].ToString();
-            CEnoview.Checked = (bool)row["noview"]; ;
+            if (!FXFW.SqlDB.IsNullOrEmpty(row["noview"]))
+                CEnoview.Checked = (bool)row["noview"];
+            else
+                CEnoview.Checked = false;
+            
             // Load Pic
             if (DBNull.Value != row["EMPPIC"])
             {
@@ -655,8 +658,20 @@ namespace SchoolWeeklyPeriods
                 cmd.Parameters.Add(new SqlParameter("@EmpID", SqlDbType.Int) { Value = LUEEmp.EditValue });
                 
                 //EMPPIC = (byte[])((DataTable)LUEEmp.Properties.DataSource).Rows[LUEEmp.ItemIndex]["EMPPIC"];
-                EMPPIC = System.IO.File.ReadAllBytes(PBImage.ImageLocation);
-                cmd.Parameters.AddWithValue("@EMPPIC", EMPPIC);
+                
+                if (PBImage.Image != null)
+                {
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                    PBImage.Image.Save(ms, PBImage.Image.RawFormat);
+                    cmd.Parameters.AddWithValue("@EMPPIC", ms.ToArray());
+                }
+                else
+                {
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                    global::SchoolWeeklyPeriods.Properties.Resources.NoImg.Save(ms, global::SchoolWeeklyPeriods.Properties.Resources.NoImg.RawFormat);
+                    EMPPIC = ms.GetBuffer();
+                    cmd.Parameters.AddWithValue("@EMPPIC", EMPPIC);
+                }
 
                 //if (PBImage.Image == null)
                 //{
@@ -714,7 +729,8 @@ namespace SchoolWeeklyPeriods
                 Program.Logger.LogThis(null, Text, FXFW.Logger.OpType.fail, null, ex, this);
             }
         }
-        #endregion         #region -   Variables   -
+        #endregion
+        
     }
 }
 

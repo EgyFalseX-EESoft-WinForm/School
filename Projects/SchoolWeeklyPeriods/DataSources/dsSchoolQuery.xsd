@@ -323,6 +323,31 @@ SELECT OpCodeID, BackupPath, SchoolLogo FROM AppOptions WHERE (OpCodeID = @OpCod
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Qry01TableAdapter" GeneratorDataComponentClassName="Qry01TableAdapter" Name="Qry01" UserDataComponentName="Qry01TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="eschoolConnectionString (Settings)" DbObjectName="eschool.dbo.TBL_Emp" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        EmpID, EMP_FIRST_NAME, EMP_FATHER_NAME, EMP_FAM_NAME, EMP_FOURTH_NAME, EmpNationalID, Emp_Address, PHONE_NO, MOBILE_NO
+FROM            TBL_Emp</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="EmpID" DataSetColumn="EmpID" />
+              <Mapping SourceColumn="EMP_FIRST_NAME" DataSetColumn="EMP_FIRST_NAME" />
+              <Mapping SourceColumn="EMP_FATHER_NAME" DataSetColumn="EMP_FATHER_NAME" />
+              <Mapping SourceColumn="EMP_FAM_NAME" DataSetColumn="EMP_FAM_NAME" />
+              <Mapping SourceColumn="EMP_FOURTH_NAME" DataSetColumn="EMP_FOURTH_NAME" />
+              <Mapping SourceColumn="EmpNationalID" DataSetColumn="EmpNationalID" />
+              <Mapping SourceColumn="Emp_Address" DataSetColumn="Emp_Address" />
+              <Mapping SourceColumn="PHONE_NO" DataSetColumn="PHONE_NO" />
+              <Mapping SourceColumn="MOBILE_NO" DataSetColumn="MOBILE_NO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources>
           <DbSource ConnectionRef="eschoolConnectionString (Settings)" DbObjectName="eschool.dbo.CD_Asasetime" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Getasase_year" MethodsParameterType="CLR" Modifier="Public" Name="Getasase_year" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Getasase_year">
@@ -344,7 +369,7 @@ WHERE        (asase_code = @asase_code)</CommandText>
   <xs:element name="dsSchoolQuery" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsSchoolQuery" msprop:Generator_UserDSName="dsSchoolQuery">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TBL_Emp" msprop:Generator_TableClassName="TBL_EmpDataTable" msprop:Generator_TableVarName="tableTBL_Emp" msprop:Generator_RowChangedName="TBL_EmpRowChanged" msprop:Generator_TablePropName="TBL_Emp" msprop:Generator_RowDeletingName="TBL_EmpRowDeleting" msprop:Generator_RowChangingName="TBL_EmpRowChanging" msprop:Generator_RowEvHandlerName="TBL_EmpRowChangeEventHandler" msprop:Generator_RowDeletedName="TBL_EmpRowDeleted" msprop:Generator_RowClassName="TBL_EmpRow" msprop:Generator_UserTableName="TBL_Emp" msprop:Generator_RowEvArgName="TBL_EmpRowChangeEvent">
+        <xs:element name="TBL_Emp" msprop:Generator_TableClassName="TBL_EmpDataTable" msprop:Generator_TableVarName="tableTBL_Emp" msprop:Generator_TablePropName="TBL_Emp" msprop:Generator_RowDeletingName="TBL_EmpRowDeleting" msprop:Generator_RowChangingName="TBL_EmpRowChanging" msprop:Generator_RowEvHandlerName="TBL_EmpRowChangeEventHandler" msprop:Generator_RowDeletedName="TBL_EmpRowDeleted" msprop:Generator_UserTableName="TBL_Emp" msprop:Generator_RowChangedName="TBL_EmpRowChanged" msprop:Generator_RowEvArgName="TBL_EmpRowChangeEvent" msprop:Generator_RowClassName="TBL_EmpRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="EmpID" msprop:Generator_ColumnVarNameInTable="columnEmpID" msprop:Generator_ColumnPropNameInRow="EmpID" msprop:Generator_ColumnPropNameInTable="EmpIDColumn" msprop:Generator_UserColumnName="EmpID" type="xs:int" />
@@ -358,7 +383,7 @@ WHERE        (asase_code = @asase_code)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="XRepTimeAllTable" msprop:Generator_TableClassName="XRepTimeAllTableDataTable" msprop:Generator_TableVarName="tableXRepTimeAllTable" msprop:Generator_TablePropName="XRepTimeAllTable" msprop:Generator_RowDeletingName="XRepTimeAllTableRowDeleting" msprop:Generator_RowChangingName="XRepTimeAllTableRowChanging" msprop:Generator_RowEvHandlerName="XRepTimeAllTableRowChangeEventHandler" msprop:Generator_RowDeletedName="XRepTimeAllTableRowDeleted" msprop:Generator_UserTableName="XRepTimeAllTable" msprop:Generator_RowChangedName="XRepTimeAllTableRowChanged" msprop:Generator_RowEvArgName="XRepTimeAllTableRowChangeEvent" msprop:Generator_RowClassName="XRepTimeAllTableRow">
+        <xs:element name="XRepTimeAllTable" msprop:Generator_TableClassName="XRepTimeAllTableDataTable" msprop:Generator_TableVarName="tableXRepTimeAllTable" msprop:Generator_RowChangedName="XRepTimeAllTableRowChanged" msprop:Generator_TablePropName="XRepTimeAllTable" msprop:Generator_RowDeletingName="XRepTimeAllTableRowDeleting" msprop:Generator_RowChangingName="XRepTimeAllTableRowChanging" msprop:Generator_RowEvHandlerName="XRepTimeAllTableRowChangeEventHandler" msprop:Generator_RowDeletedName="XRepTimeAllTableRowDeleted" msprop:Generator_RowClassName="XRepTimeAllTableRow" msprop:Generator_UserTableName="XRepTimeAllTable" msprop:Generator_RowEvArgName="XRepTimeAllTableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="EmpID" msprop:Generator_ColumnVarNameInTable="columnEmpID" msprop:Generator_ColumnPropNameInRow="EmpID" msprop:Generator_ColumnPropNameInTable="EmpIDColumn" msprop:Generator_UserColumnName="EmpID" type="xs:int" />
@@ -413,7 +438,7 @@ WHERE        (asase_code = @asase_code)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CD_Asasetime" msprop:Generator_TableClassName="CD_AsasetimeDataTable" msprop:Generator_TableVarName="tableCD_Asasetime" msprop:Generator_RowChangedName="CD_AsasetimeRowChanged" msprop:Generator_TablePropName="CD_Asasetime" msprop:Generator_RowDeletingName="CD_AsasetimeRowDeleting" msprop:Generator_RowChangingName="CD_AsasetimeRowChanging" msprop:Generator_RowEvHandlerName="CD_AsasetimeRowChangeEventHandler" msprop:Generator_RowDeletedName="CD_AsasetimeRowDeleted" msprop:Generator_RowClassName="CD_AsasetimeRow" msprop:Generator_UserTableName="CD_Asasetime" msprop:Generator_RowEvArgName="CD_AsasetimeRowChangeEvent">
+        <xs:element name="CD_Asasetime" msprop:Generator_TableClassName="CD_AsasetimeDataTable" msprop:Generator_TableVarName="tableCD_Asasetime" msprop:Generator_TablePropName="CD_Asasetime" msprop:Generator_RowDeletingName="CD_AsasetimeRowDeleting" msprop:Generator_RowChangingName="CD_AsasetimeRowChanging" msprop:Generator_RowEvHandlerName="CD_AsasetimeRowChangeEventHandler" msprop:Generator_RowDeletedName="CD_AsasetimeRowDeleted" msprop:Generator_UserTableName="CD_Asasetime" msprop:Generator_RowChangedName="CD_AsasetimeRowChanged" msprop:Generator_RowEvArgName="CD_AsasetimeRowChangeEvent" msprop:Generator_RowClassName="CD_AsasetimeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="asase_code" msprop:Generator_ColumnVarNameInTable="columnasase_code" msprop:Generator_ColumnPropNameInRow="asase_code" msprop:Generator_ColumnPropNameInTable="asase_codeColumn" msprop:Generator_UserColumnName="asase_code" type="xs:unsignedByte" />
@@ -451,7 +476,7 @@ WHERE        (asase_code = @asase_code)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CDAlsofof" msprop:Generator_TableClassName="CDAlsofofDataTable" msprop:Generator_TableVarName="tableCDAlsofof" msprop:Generator_RowChangedName="CDAlsofofRowChanged" msprop:Generator_TablePropName="CDAlsofof" msprop:Generator_RowDeletingName="CDAlsofofRowDeleting" msprop:Generator_RowChangingName="CDAlsofofRowChanging" msprop:Generator_RowEvHandlerName="CDAlsofofRowChangeEventHandler" msprop:Generator_RowDeletedName="CDAlsofofRowDeleted" msprop:Generator_RowClassName="CDAlsofofRow" msprop:Generator_UserTableName="CDAlsofof" msprop:Generator_RowEvArgName="CDAlsofofRowChangeEvent">
+        <xs:element name="CDAlsofof" msprop:Generator_TableClassName="CDAlsofofDataTable" msprop:Generator_TableVarName="tableCDAlsofof" msprop:Generator_TablePropName="CDAlsofof" msprop:Generator_RowDeletingName="CDAlsofofRowDeleting" msprop:Generator_RowChangingName="CDAlsofofRowChanging" msprop:Generator_RowEvHandlerName="CDAlsofofRowChangeEventHandler" msprop:Generator_RowDeletedName="CDAlsofofRowDeleted" msprop:Generator_UserTableName="CDAlsofof" msprop:Generator_RowChangedName="CDAlsofofRowChanged" msprop:Generator_RowEvArgName="CDAlsofofRowChangeEvent" msprop:Generator_RowClassName="CDAlsofofRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="alsofof_code" msprop:Generator_ColumnVarNameInTable="columnalsofof_code" msprop:Generator_ColumnPropNameInRow="alsofof_code" msprop:Generator_ColumnPropNameInTable="alsofof_codeColumn" msprop:Generator_UserColumnName="alsofof_code" type="xs:unsignedByte" />
@@ -487,7 +512,7 @@ WHERE        (asase_code = @asase_code)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AppOptions" msprop:Generator_TableClassName="AppOptionsDataTable" msprop:Generator_TableVarName="tableAppOptions" msprop:Generator_TablePropName="AppOptions" msprop:Generator_RowDeletingName="AppOptionsRowDeleting" msprop:Generator_RowChangingName="AppOptionsRowChanging" msprop:Generator_RowEvHandlerName="AppOptionsRowChangeEventHandler" msprop:Generator_RowDeletedName="AppOptionsRowDeleted" msprop:Generator_UserTableName="AppOptions" msprop:Generator_RowChangedName="AppOptionsRowChanged" msprop:Generator_RowEvArgName="AppOptionsRowChangeEvent" msprop:Generator_RowClassName="AppOptionsRow">
+        <xs:element name="AppOptions" msprop:Generator_TableClassName="AppOptionsDataTable" msprop:Generator_TableVarName="tableAppOptions" msprop:Generator_RowChangedName="AppOptionsRowChanged" msprop:Generator_TablePropName="AppOptions" msprop:Generator_RowDeletingName="AppOptionsRowDeleting" msprop:Generator_RowChangingName="AppOptionsRowChanging" msprop:Generator_RowEvHandlerName="AppOptionsRowChangeEventHandler" msprop:Generator_RowDeletedName="AppOptionsRowDeleted" msprop:Generator_RowClassName="AppOptionsRow" msprop:Generator_UserTableName="AppOptions" msprop:Generator_RowEvArgName="AppOptionsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="OpCodeID" msprop:Generator_ColumnVarNameInTable="columnOpCodeID" msprop:Generator_ColumnPropNameInRow="OpCodeID" msprop:Generator_ColumnPropNameInTable="OpCodeIDColumn" msprop:Generator_UserColumnName="OpCodeID" type="xs:int" />
@@ -499,6 +524,69 @@ WHERE        (asase_code = @asase_code)</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="SchoolLogo" msprop:Generator_ColumnVarNameInTable="columnSchoolLogo" msprop:Generator_ColumnPropNameInRow="SchoolLogo" msprop:Generator_ColumnPropNameInTable="SchoolLogoColumn" msprop:Generator_UserColumnName="SchoolLogo" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Qry01" msprop:Generator_TableClassName="Qry01DataTable" msprop:Generator_TableVarName="tableQry01" msprop:Generator_TablePropName="Qry01" msprop:Generator_RowDeletingName="Qry01RowDeleting" msprop:Generator_RowChangingName="Qry01RowChanging" msprop:Generator_RowEvHandlerName="Qry01RowChangeEventHandler" msprop:Generator_RowDeletedName="Qry01RowDeleted" msprop:Generator_UserTableName="Qry01" msprop:Generator_RowChangedName="Qry01RowChanged" msprop:Generator_RowEvArgName="Qry01RowChangeEvent" msprop:Generator_RowClassName="Qry01Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmpID" msprop:Generator_ColumnVarNameInTable="columnEmpID" msprop:Generator_ColumnPropNameInRow="EmpID" msprop:Generator_ColumnPropNameInTable="EmpIDColumn" msprop:Generator_UserColumnName="EmpID" type="xs:int" />
+              <xs:element name="EMP_FIRST_NAME" msprop:Generator_ColumnVarNameInTable="columnEMP_FIRST_NAME" msprop:Generator_ColumnPropNameInRow="EMP_FIRST_NAME" msprop:Generator_ColumnPropNameInTable="EMP_FIRST_NAMEColumn" msprop:Generator_UserColumnName="EMP_FIRST_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EMP_FATHER_NAME" msprop:Generator_ColumnVarNameInTable="columnEMP_FATHER_NAME" msprop:Generator_ColumnPropNameInRow="EMP_FATHER_NAME" msprop:Generator_ColumnPropNameInTable="EMP_FATHER_NAMEColumn" msprop:Generator_UserColumnName="EMP_FATHER_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EMP_FAM_NAME" msprop:Generator_ColumnVarNameInTable="columnEMP_FAM_NAME" msprop:Generator_ColumnPropNameInRow="EMP_FAM_NAME" msprop:Generator_ColumnPropNameInTable="EMP_FAM_NAMEColumn" msprop:Generator_UserColumnName="EMP_FAM_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EMP_FOURTH_NAME" msprop:Generator_ColumnVarNameInTable="columnEMP_FOURTH_NAME" msprop:Generator_ColumnPropNameInRow="EMP_FOURTH_NAME" msprop:Generator_ColumnPropNameInTable="EMP_FOURTH_NAMEColumn" msprop:Generator_UserColumnName="EMP_FOURTH_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmpNationalID" msprop:Generator_ColumnVarNameInTable="columnEmpNationalID" msprop:Generator_ColumnPropNameInRow="EmpNationalID" msprop:Generator_ColumnPropNameInTable="EmpNationalIDColumn" msprop:Generator_UserColumnName="EmpNationalID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Emp_Address" msprop:Generator_ColumnVarNameInTable="columnEmp_Address" msprop:Generator_ColumnPropNameInRow="Emp_Address" msprop:Generator_ColumnPropNameInTable="Emp_AddressColumn" msprop:Generator_UserColumnName="Emp_Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PHONE_NO" msprop:Generator_ColumnVarNameInTable="columnPHONE_NO" msprop:Generator_ColumnPropNameInRow="PHONE_NO" msprop:Generator_ColumnPropNameInTable="PHONE_NOColumn" msprop:Generator_UserColumnName="PHONE_NO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MOBILE_NO" msprop:Generator_ColumnVarNameInTable="columnMOBILE_NO" msprop:Generator_ColumnPropNameInRow="MOBILE_NO" msprop:Generator_ColumnPropNameInTable="MOBILE_NOColumn" msprop:Generator_UserColumnName="MOBILE_NO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -527,11 +615,16 @@ WHERE        (asase_code = @asase_code)</CommandText>
       <xs:selector xpath=".//mstns:AppOptions" />
       <xs:field xpath="mstns:OpCodeID" />
     </xs:unique>
+    <xs:unique name="Qry01_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Qry01" />
+      <xs:field xpath="mstns:EmpID" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_TBLTimeTable_CD_Asasetime" msdata:parent="CD_Asasetime" msdata:child="XRepTimeAllTable" msdata:parentkey="asase_code" msdata:childkey="asase_code" msprop:Generator_UserChildTable="XRepTimeAllTable" msprop:Generator_ChildPropName="GetXRepTimeAllTableRows" msprop:Generator_UserRelationName="FK_TBLTimeTable_CD_Asasetime" msprop:Generator_ParentPropName="CD_AsasetimeRow" msprop:Generator_RelationVarName="relationFK_TBLTimeTable_CD_Asasetime" msprop:Generator_UserParentTable="CD_Asasetime" />
-      <msdata:Relationship name="FK_TBLTimeTable_CDAlsofof" msdata:parent="CDAlsofof" msdata:child="XRepTimeAllTable" msdata:parentkey="alsofof_code" msdata:childkey="alsofof_code" msprop:Generator_UserChildTable="XRepTimeAllTable" msprop:Generator_ChildPropName="GetXRepTimeAllTableRows" msprop:Generator_UserRelationName="FK_TBLTimeTable_CDAlsofof" msprop:Generator_ParentPropName="CDAlsofofRow" msprop:Generator_RelationVarName="relationFK_TBLTimeTable_CDAlsofof" msprop:Generator_UserParentTable="CDAlsofof" />
+      <msdata:Relationship name="FK_TBLTimeTable_CD_Asasetime" msdata:parent="CD_Asasetime" msdata:child="XRepTimeAllTable" msdata:parentkey="asase_code" msdata:childkey="asase_code" msprop:Generator_UserChildTable="XRepTimeAllTable" msprop:Generator_ChildPropName="GetXRepTimeAllTableRows" msprop:Generator_UserRelationName="FK_TBLTimeTable_CD_Asasetime" msprop:Generator_RelationVarName="relationFK_TBLTimeTable_CD_Asasetime" msprop:Generator_UserParentTable="CD_Asasetime" msprop:Generator_ParentPropName="CD_AsasetimeRow" />
+      <msdata:Relationship name="FK_TBLTimeTable_CDAlsofof" msdata:parent="CDAlsofof" msdata:child="XRepTimeAllTable" msdata:parentkey="alsofof_code" msdata:childkey="alsofof_code" msprop:Generator_UserChildTable="XRepTimeAllTable" msprop:Generator_ChildPropName="GetXRepTimeAllTableRows" msprop:Generator_UserRelationName="FK_TBLTimeTable_CDAlsofof" msprop:Generator_RelationVarName="relationFK_TBLTimeTable_CDAlsofof" msprop:Generator_UserParentTable="CDAlsofof" msprop:Generator_ParentPropName="CDAlsofofRow" />
+      <msdata:Relationship name="FK_TBLTimeTable_TBL_Emp" msdata:parent="Qry01" msdata:child="XRepTimeAllTable" msdata:parentkey="EmpID" msdata:childkey="EmpID" msprop:Generator_UserChildTable="XRepTimeAllTable" msprop:Generator_ChildPropName="GetXRepTimeAllTableRows" msprop:Generator_UserRelationName="FK_TBLTimeTable_TBL_Emp" msprop:Generator_RelationVarName="relationFK_TBLTimeTable_TBL_Emp" msprop:Generator_UserParentTable="Qry01" msprop:Generator_ParentPropName="Qry01Row" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

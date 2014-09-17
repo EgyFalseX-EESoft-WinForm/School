@@ -51,7 +51,7 @@ namespace SchoolWeeklyPeriods
             (SELECT hesasno FROM CDSubjectWekly where alsofof_code = gdw.TBLTeachersPlan.alsofof_code AND SubjectId = gdw.TBLTeachersPlan.SubjectId) AS hesasno,
             (SELECT ISNULL(COUNT(*), 0) FROM gdw.TBLTimeTable WHERE asase_code = gdw.TBLTeachersPlan.asase_code AND EmpID = gdw.TBLTeachersPlan.EmpID AND alsofof_code = gdw.TBLTeachersPlan.alsofof_code AND fasl_code = gdw.TBLTeachersPlan.fasl_code AND SubjectId = gdw.TBLTeachersPlan.SubjectId) AS HavePeriod,
             asase_code AS org_asase_code, EmpID AS org_EmpID, alsofof_code AS org_alsofof_code, fasl_code AS org_fasl_code, SubjectId AS org_SubjectId
-            From gdw.TBLTeachersPlan");
+            From gdw.TBLTeachersPlan WHERE asase_code = " + FXFW.SqlDB.asase_code);
         }
         private void ActiveKeyDownEvent(object sender, KeyEventArgs e)
         {
@@ -200,6 +200,11 @@ namespace SchoolWeeklyPeriods
         }
 
         #endregion
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            gridControlData.ShowRibbonPrintPreview();
+        }
 
        
 
