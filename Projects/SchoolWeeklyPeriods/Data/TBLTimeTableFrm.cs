@@ -14,7 +14,7 @@ namespace SchoolWeeklyPeriods
 {
     public partial class TBLTimeTableFrm : DevExpress.XtraEditors.XtraForm
     {
-        
+        int MaxPeriodsPerDay = 4;
         #region -   Functions   -
         public TBLTimeTableFrm()
         {
@@ -287,6 +287,11 @@ namespace SchoolWeeklyPeriods
         }
         private bool SavePeriod(string EmpID, string daycode, string hasa_code, string alsofof_code, string fasl_code, string SubjectId, object placecd)
         {
+            //if ( daycode == "5" & hasa_code == "7")
+            //{
+            //    MessageBox.Show(EmpID);
+            //}
+
             bool ReturnMe = false;
             SqlConnection con = new SqlConnection(FXFW.SqlDB.SqlConStr);
             SqlCommand cmd = new SqlCommand("", con);
@@ -627,6 +632,10 @@ namespace SchoolWeeklyPeriods
                     int SubjectPeriodRemain = (int)rowSubject["Remaning"];
                         foreach (DataRow rowDays in dtEmpDays.Rows)// Days For Emp
                         {
+                            //check if this days havr exceeded period for this Emp
+                            if (Convert.ToInt32(FXFW.SqlDB.LoadDataTable(string.Format(@"SELECT COUNT(EmpID) FROM gdw.TBLTimeTable WHERE EmpID = {0} AND daycode = {1}", EmpID, rowDays["daycode"])).Rows[0][0]) > MaxPeriodsPerDay)
+                                continue;
+
                             if (FristEmptyPeriod == false)
                             {
                                 //check if this emp have maxium period for this day or not
@@ -734,6 +743,7 @@ namespace SchoolWeeklyPeriods
             else
                 return false;
         }
+        
         private void ActiveKeyDownEvent(object sender, KeyEventArgs e)
         {
             if (e.KeyData != Keys.F5 && e.KeyData != Keys.F6 && e.KeyData != Keys.F10 && e.KeyData != Keys.F8)
@@ -770,13 +780,17 @@ namespace SchoolWeeklyPeriods
             repositoryItemButtonEditDel.Buttons[0].Enabled = Deleting;
         }
 
-#endregion
+        #endregion
         #region - Event Handlers -
         private void stu_nashatFrm_Load(object sender, EventArgs e)
         {
             ActivePriv();
             LoadDefaultData(CodeFrm.TableNames.All);
             LoadGrid();
+        }
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            gridControlData.ShowRibbonPrintPreview();
         }
         private void LUEEmp_EditValueChanged(object sender, EventArgs e)
         {
@@ -879,7 +893,7 @@ namespace SchoolWeeklyPeriods
             (SELECT hesasno FROM CDSubjectWekly where alsofof_code = gdw.TBLTeachersPlan.alsofof_code AND SubjectId = gdw.TBLTeachersPlan.SubjectId) > 
             (SELECT ISNULL(COUNT(*), 0) FROM gdw.TBLTimeTable WHERE asase_code = gdw.TBLTeachersPlan.asase_code AND EmpID = gdw.TBLTeachersPlan.EmpID AND alsofof_code = gdw.TBLTeachersPlan.alsofof_code AND fasl_code = gdw.TBLTeachersPlan.fasl_code AND SubjectId = gdw.TBLTeachersPlan.SubjectId)"
                 , EmpID, FXFW.SqlDB.asase_code));
-            foreach (DataRow TblRemainRow in TblRemain.Rows)
+            foreach (DataRow TblRemainRow in TblRemain.Rows)// Loop For Each remains Supject
             {
                 int PeriodToFill = (int)TblRemainRow["remain"];// Need to fill x of periods
                 for (int i = 0; i < PeriodToFill; i++)
@@ -898,13 +912,24 @@ namespace SchoolWeeklyPeriods
                     (SELECT twoh FROM CDSubjectWekly WHERE SubjectId = gdw.TBLTimeTable.SubjectId AND alsofof_code = gdw.TBLTimeTable.alsofof_code) as twoh
                     FROM gdw.TBLTimeTable WHERE asase_code = {0} AND alsofof_code = {1} AND fasl_code = {2}
                     AND NOT EXISTS (
-                    SELECT hasa_code FROM gdw.TBLTimeTable AS TBL1 WHERE asase_code = gdw.TBLTimeTable.asase_code AND EmpID = gdw.TBLTimeTable.EmpID AND daycode = {3} AND hasa_code = {4}
-                    ) AND NOT EXISTS (
-                    SELECT EmpID FROM gdw.TBLTimeTable AS TBL2 WHERE EmpID = {5} AND asase_code = gdw.TBLTimeTable.asase_code AND daycode = gdw.TBLTimeTable.daycode AND hasa_code = gdw.TBLTimeTable.hasa_code
-                    ) order by twoh, hasa_code desc", TblRemainRow["asase_code"], TblRemainRow["alsofof_code"], TblRemainRow["fasl_code"], FreeFaslPeriodRow["daycode"], FreeFaslPeriodRow["hasa_code"], EmpID));
+                    SELECT hasa_code FROM gdw.TBLTimeTable AS TBL1 WHERE asase_code = gdw.TBLTimeTable.asase_code AND EmpID = gdw.TBLTimeTable.EmpID AND daycode = {3} AND hasa_code = {4}) 
+                    AND NOT EXISTS 
+                    (SELECT EmpID FROM gdw.TBLTimeTable AS TBL2 WHERE EmpID = {5} AND asase_code = gdw.TBLTimeTable.asase_code AND daycode = gdw.TBLTimeTable.daycode AND hasa_code = gdw.TBLTimeTable.hasa_code) 
+                    order by twoh, hasa_code desc", TblRemainRow["asase_code"], TblRemainRow["alsofof_code"], TblRemainRow["fasl_code"], FreeFaslPeriodRow["daycode"], FreeFaslPeriodRow["hasa_code"], EmpID));
                                             
                         foreach (DataRow FreeEmpRow in FreeEmp.Rows)
                         {
+                            //Check if this is not weekEnd Period
+                            if (FXFW.SqlDB.LoadDataTable(string.Format("Select hasa_code From TBLTeacherNoDays Where daycode = {0} AND EmpID = {1} AND hasa_code = {2}", FreeEmpRow["daycode"], EmpID, FreeEmpRow["hasa_code"])).Rows.Count > 0)
+                                continue;
+                            if (FXFW.SqlDB.LoadDataTable(string.Format("Select hasa_code From TBLTeacherNoDays Where daycode = {0} AND EmpID = {1} AND hasa_code = {2}", FreeFaslPeriodRow["daycode"], FreeEmpRow["EmpID"], FreeFaslPeriodRow["hasa_code"])).Rows.Count > 0)
+                                continue;
+                            //check if this days have exceeded period for this Emp
+                            if (Convert.ToInt32(FXFW.SqlDB.LoadDataTable(string.Format(@"SELECT COUNT(EmpID) FROM gdw.TBLTimeTable WHERE EmpID = {0} AND daycode = {1}", EmpID, FreeEmpRow["daycode"])).Rows[0][0]) > MaxPeriodsPerDay)
+                                continue;
+                            if (Convert.ToInt32(FXFW.SqlDB.LoadDataTable(string.Format(@"SELECT COUNT(EmpID) FROM gdw.TBLTimeTable WHERE EmpID = {0} AND daycode = {1}", FreeEmpRow["EmpID"], FreeFaslPeriodRow["daycode"])).Rows[0][0]) > MaxPeriodsPerDay)
+                                continue;
+
                             if (ReplacePeriod(FreeEmpRow["asase_code"].ToString(), FreeEmpRow["EmpID"].ToString(), FreeEmpRow["daycode"].ToString(), FreeEmpRow["hasa_code"].ToString(), FreeEmpRow["alsofof_code"].ToString(), FreeEmpRow["fasl_code"].ToString(), FreeEmpRow["SubjectId"].ToString(), FreeEmpRow["placecd"].ToString(),
                                 TblRemainRow["asase_code"].ToString(), EmpID, FreeFaslPeriodRow["daycode"].ToString(), FreeFaslPeriodRow["hasa_code"].ToString(), TblRemainRow["alsofof_code"].ToString(), TblRemainRow["fasl_code"].ToString(), TblRemainRow["SubjectId"].ToString(), placecd))
                             {
@@ -1032,9 +1057,6 @@ namespace SchoolWeeklyPeriods
         }
         #endregion
 
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            gridControlData.ShowRibbonPrintPreview();
-        }
+        
     }
 }

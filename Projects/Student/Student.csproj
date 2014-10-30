@@ -44,6 +44,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <DeepSeaObfuscate>false</DeepSeaObfuscate>
     <DeepSeaKeyPassword>[Egy]FalseX</DeepSeaKeyPassword>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -386,6 +387,7 @@
     <EmbeddedResource Include="Data\stu_logatcodeFrm.resx">
       <DependentUpon>stu_logatcodeFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

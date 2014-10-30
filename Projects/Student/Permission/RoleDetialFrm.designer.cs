@@ -371,7 +371,7 @@
             // 
             // navBarItemStuCDHaletalked
             // 
-            this.navBarItemStuCDHaletalked.Caption = "العقود";
+            this.navBarItemStuCDHaletalked.Caption = "القيد";
             this.navBarItemStuCDHaletalked.LargeImageIndex = 8;
             this.navBarItemStuCDHaletalked.Name = "navBarItemStuCDHaletalked";
             this.navBarItemStuCDHaletalked.SmallImageIndex = 8;

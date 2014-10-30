@@ -289,7 +289,7 @@ namespace Employee
             rpt.CreateReport("GroupDS", "DataSourceEmployee", FXFW.SqlDB.ReportPath, 10080, reports);
             FXFW.SqlDB.DeploySSRSReports(rpt);
 
-            FXFW.SqlDB.ChangePublicSSRSAuthType();
+            //FXFW.SqlDB.ChangePublicSSRSAuthType();
             
         }
         private void repositoryItemLookUpEditasase_code_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

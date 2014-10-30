@@ -125,6 +125,12 @@
             this.navBarItemStuUserRoles = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemStuAppOptions = new DevExpress.XtraNavBar.NavBarItem();
             this.panelContainer2 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.DPQuery = new DevExpress.XtraBars.Docking.DockPanel();
+            this.controlContainer2 = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.navBarControlQry = new DevExpress.XtraNavBar.NavBarControl();
+            this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItemStuQryStudentContacts = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemStuQryStudentInfo = new DevExpress.XtraNavBar.NavBarItem();
             this.DPReport = new DevExpress.XtraBars.Docking.DockPanel();
             this.controlContainer3 = new DevExpress.XtraBars.Docking.ControlContainer();
             this.navBarControlReport = new DevExpress.XtraNavBar.NavBarControl();
@@ -134,12 +140,6 @@
             this.navBarGroup7 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroup8 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroup9 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.DPQuery = new DevExpress.XtraBars.Docking.DockPanel();
-            this.controlContainer2 = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.navBarControlQry = new DevExpress.XtraNavBar.NavBarControl();
-            this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItemStuQryStudentContacts = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItemStuQryStudentInfo = new DevExpress.XtraNavBar.NavBarItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemComboBoxSkins = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.barManagerMain)).BeginInit();
@@ -164,12 +164,12 @@
             this.controlContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlPriv)).BeginInit();
             this.panelContainer2.SuspendLayout();
-            this.DPReport.SuspendLayout();
-            this.controlContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControlReport)).BeginInit();
             this.DPQuery.SuspendLayout();
             this.controlContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlQry)).BeginInit();
+            this.DPReport.SuspendLayout();
+            this.controlContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControlReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxSkins)).BeginInit();
             this.SuspendLayout();
             // 
@@ -760,7 +760,7 @@
             // 
             // navBarItemStuCDHaletalked
             // 
-            this.navBarItemStuCDHaletalked.Caption = "العقود";
+            this.navBarItemStuCDHaletalked.Caption = "القيد";
             this.navBarItemStuCDHaletalked.LargeImageIndex = 8;
             this.navBarItemStuCDHaletalked.Name = "navBarItemStuCDHaletalked";
             this.navBarItemStuCDHaletalked.SmallImageIndex = 8;
@@ -848,7 +848,7 @@
             // 
             // navBarItemStuCDEqamaType
             // 
-            this.navBarItemStuCDEqamaType.Caption = "اناوع الاقامه";
+            this.navBarItemStuCDEqamaType.Caption = "انواع الاقامه";
             this.navBarItemStuCDEqamaType.LargeImageIndex = 24;
             this.navBarItemStuCDEqamaType.Name = "navBarItemStuCDEqamaType";
             this.navBarItemStuCDEqamaType.SmallImageIndex = 24;
@@ -1244,6 +1244,74 @@
             this.panelContainer2.TabsScroll = true;
             this.panelContainer2.Text = "panelContainer2";
             // 
+            // DPQuery
+            // 
+            this.DPQuery.Controls.Add(this.controlContainer2);
+            this.DPQuery.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            this.DPQuery.ID = new System.Guid("d8711011-1b74-442f-bb9b-8102c8bf9f50");
+            this.DPQuery.Location = new System.Drawing.Point(4, 23);
+            this.DPQuery.Name = "DPQuery";
+            this.DPQuery.OriginalSize = new System.Drawing.Size(192, 449);
+            this.DPQuery.Size = new System.Drawing.Size(192, 451);
+            this.DPQuery.TabsScroll = true;
+            this.DPQuery.Text = "استعلامات";
+            // 
+            // controlContainer2
+            // 
+            this.controlContainer2.Controls.Add(this.navBarControlQry);
+            this.controlContainer2.Location = new System.Drawing.Point(0, 0);
+            this.controlContainer2.Name = "controlContainer2";
+            this.controlContainer2.Size = new System.Drawing.Size(192, 451);
+            this.controlContainer2.TabIndex = 0;
+            // 
+            // navBarControlQry
+            // 
+            this.navBarControlQry.ActiveGroup = this.navBarGroup5;
+            this.navBarControlQry.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navBarControlQry.ExplorerBarShowGroupButtons = false;
+            this.navBarControlQry.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
+            this.navBarGroup5});
+            this.navBarControlQry.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
+            this.navBarItemStuQryStudentContacts,
+            this.navBarItemStuQryStudentInfo});
+            this.navBarControlQry.LargeImages = this.imageCollection32;
+            this.navBarControlQry.Location = new System.Drawing.Point(0, 0);
+            this.navBarControlQry.Name = "navBarControlQry";
+            this.navBarControlQry.OptionsNavPane.ExpandedWidth = 192;
+            this.navBarControlQry.Size = new System.Drawing.Size(192, 451);
+            this.navBarControlQry.SmallImages = this.imageCollection32;
+            this.navBarControlQry.StoreDefaultPaintStyleName = true;
+            this.navBarControlQry.TabIndex = 9;
+            this.navBarControlQry.Text = "navBarControl1";
+            // 
+            // navBarGroup5
+            // 
+            this.navBarGroup5.Caption = "";
+            this.navBarGroup5.Expanded = true;
+            this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemStuQryStudentContacts),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemStuQryStudentInfo)});
+            this.navBarGroup5.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarGroup5.LargeImage")));
+            this.navBarGroup5.Name = "navBarGroup5";
+            this.navBarGroup5.NavigationPaneVisible = false;
+            this.navBarGroup5.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroup5.SmallImage")));
+            // 
+            // navBarItemStuQryStudentContacts
+            // 
+            this.navBarItemStuQryStudentContacts.Caption = "بيانات الاتصال";
+            this.navBarItemStuQryStudentContacts.LargeImageIndex = 38;
+            this.navBarItemStuQryStudentContacts.Name = "navBarItemStuQryStudentContacts";
+            this.navBarItemStuQryStudentContacts.SmallImageIndex = 38;
+            this.navBarItemStuQryStudentContacts.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemQryStudentContacts_LinkClicked);
+            // 
+            // navBarItemStuQryStudentInfo
+            // 
+            this.navBarItemStuQryStudentInfo.Caption = "بيانات الطلاب";
+            this.navBarItemStuQryStudentInfo.LargeImageIndex = 39;
+            this.navBarItemStuQryStudentInfo.Name = "navBarItemStuQryStudentInfo";
+            this.navBarItemStuQryStudentInfo.SmallImageIndex = 39;
+            this.navBarItemStuQryStudentInfo.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemQryStudentInfo_LinkClicked);
+            // 
             // DPReport
             // 
             this.DPReport.Controls.Add(this.controlContainer3);
@@ -1332,74 +1400,6 @@
             this.navBarGroup9.Name = "navBarGroup9";
             this.navBarGroup9.SmallImage = global::Student.Properties.Resources.Print;
             // 
-            // DPQuery
-            // 
-            this.DPQuery.Controls.Add(this.controlContainer2);
-            this.DPQuery.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.DPQuery.ID = new System.Guid("d8711011-1b74-442f-bb9b-8102c8bf9f50");
-            this.DPQuery.Location = new System.Drawing.Point(4, 23);
-            this.DPQuery.Name = "DPQuery";
-            this.DPQuery.OriginalSize = new System.Drawing.Size(192, 449);
-            this.DPQuery.Size = new System.Drawing.Size(192, 451);
-            this.DPQuery.TabsScroll = true;
-            this.DPQuery.Text = "استعلامات";
-            // 
-            // controlContainer2
-            // 
-            this.controlContainer2.Controls.Add(this.navBarControlQry);
-            this.controlContainer2.Location = new System.Drawing.Point(0, 0);
-            this.controlContainer2.Name = "controlContainer2";
-            this.controlContainer2.Size = new System.Drawing.Size(192, 451);
-            this.controlContainer2.TabIndex = 0;
-            // 
-            // navBarControlQry
-            // 
-            this.navBarControlQry.ActiveGroup = this.navBarGroup5;
-            this.navBarControlQry.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navBarControlQry.ExplorerBarShowGroupButtons = false;
-            this.navBarControlQry.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.navBarGroup5});
-            this.navBarControlQry.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
-            this.navBarItemStuQryStudentContacts,
-            this.navBarItemStuQryStudentInfo});
-            this.navBarControlQry.LargeImages = this.imageCollection32;
-            this.navBarControlQry.Location = new System.Drawing.Point(0, 0);
-            this.navBarControlQry.Name = "navBarControlQry";
-            this.navBarControlQry.OptionsNavPane.ExpandedWidth = 192;
-            this.navBarControlQry.Size = new System.Drawing.Size(192, 451);
-            this.navBarControlQry.SmallImages = this.imageCollection32;
-            this.navBarControlQry.StoreDefaultPaintStyleName = true;
-            this.navBarControlQry.TabIndex = 9;
-            this.navBarControlQry.Text = "navBarControl1";
-            // 
-            // navBarGroup5
-            // 
-            this.navBarGroup5.Caption = "";
-            this.navBarGroup5.Expanded = true;
-            this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemStuQryStudentContacts),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemStuQryStudentInfo)});
-            this.navBarGroup5.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarGroup5.LargeImage")));
-            this.navBarGroup5.Name = "navBarGroup5";
-            this.navBarGroup5.NavigationPaneVisible = false;
-            this.navBarGroup5.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroup5.SmallImage")));
-            // 
-            // navBarItemStuQryStudentContacts
-            // 
-            this.navBarItemStuQryStudentContacts.Caption = "بيانات الاتصال";
-            this.navBarItemStuQryStudentContacts.LargeImageIndex = 38;
-            this.navBarItemStuQryStudentContacts.Name = "navBarItemStuQryStudentContacts";
-            this.navBarItemStuQryStudentContacts.SmallImageIndex = 38;
-            this.navBarItemStuQryStudentContacts.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemQryStudentContacts_LinkClicked);
-            // 
-            // navBarItemStuQryStudentInfo
-            // 
-            this.navBarItemStuQryStudentInfo.Caption = "بيانات الطلاب";
-            this.navBarItemStuQryStudentInfo.LargeImageIndex = 39;
-            this.navBarItemStuQryStudentInfo.Name = "navBarItemStuQryStudentInfo";
-            this.navBarItemStuQryStudentInfo.SmallImageIndex = 39;
-            this.navBarItemStuQryStudentInfo.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemQryStudentInfo_LinkClicked);
-            // 
             // barEditItem1
             // 
             this.barEditItem1.Edit = null;
@@ -1454,12 +1454,12 @@
             this.controlContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlPriv)).EndInit();
             this.panelContainer2.ResumeLayout(false);
-            this.DPReport.ResumeLayout(false);
-            this.controlContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControlReport)).EndInit();
             this.DPQuery.ResumeLayout(false);
             this.controlContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlQry)).EndInit();
+            this.DPReport.ResumeLayout(false);
+            this.controlContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControlReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxSkins)).EndInit();
             this.ResumeLayout(false);
 

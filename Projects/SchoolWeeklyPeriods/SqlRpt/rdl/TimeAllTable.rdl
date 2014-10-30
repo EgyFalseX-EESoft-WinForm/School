@@ -409,6 +409,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <LayoutDirection>RTL</LayoutDirection>
         <DataSetName>DataSetMainData</DataSetName>
         <Filters>
           <Filter>
@@ -988,7 +989,7 @@ WHERE asase_code = @asase_code</CommandText>
       <DataType>Integer</DataType>
       <DefaultValue>
         <Values>
-          <Value>2</Value>
+          <Value>3</Value>
         </Values>
       </DefaultValue>
       <Prompt>asase code</Prompt>

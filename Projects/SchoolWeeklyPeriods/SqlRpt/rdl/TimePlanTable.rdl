@@ -1,182 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
-  <DataSources>
-    <DataSource Name="DataSourceSchoolWeeklyPeriods">
-      <DataSourceReference>DataSourceSchoolWeeklyPeriods</DataSourceReference>
-      <rd:DataSourceID>50b60119-8d83-4419-83d5-0290ea9daca1</rd:DataSourceID>
-      <rd:SecurityType>None</rd:SecurityType>
-    </DataSource>
-  </DataSources>
-  <DataSets>
-    <DataSet Name="DataSetMainData">
-      <Fields>
-        <Field Name="asase_code">
-          <DataField>asase_code</DataField>
-          <rd:TypeName>System.Byte</rd:TypeName>
-        </Field>
-        <Field Name="EmpID">
-          <DataField>EmpID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="hasa_code">
-          <DataField>hasa_code</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="daycode">
-          <DataField>daycode</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="alsofof_code">
-          <DataField>alsofof_code</DataField>
-          <rd:TypeName>System.Byte</rd:TypeName>
-        </Field>
-        <Field Name="SubjectId">
-          <DataField>SubjectId</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
-        </Field>
-        <Field Name="fasl_code">
-          <DataField>fasl_code</DataField>
-          <rd:TypeName>System.Byte</rd:TypeName>
-        </Field>
-        <Field Name="ShortlyFasl">
-          <DataField>ShortlyFasl</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Subject">
-          <DataField>Subject</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ShortlySaf">
-          <DataField>ShortlySaf</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="dayname">
-          <DataField>dayname</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="hasa_name">
-          <DataField>hasa_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="emp_name">
-          <DataField>emp_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="hesasno">
-          <DataField>hesasno</DataField>
-          <rd:TypeName>System.Byte</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSourceSchoolWeeklyPeriods</DataSourceName>
-        <CommandText>SELECT EmpID, asase_code, daycode, hasa_code, alsofof_code, fasl_code, SubjectId,
-            (select [Subject] from CD_Subject where SubjectId = gdw.TBLTimeTable.SubjectId) AS [Subject],
-            (Select Shortly From CDAlsofof Where alsofof_code = gdw.TBLTimeTable.alsofof_code) AS ShortlyFasl,
-            (Select Shortly From CDEFasl Where fasl_code = gdw.TBLTimeTable.fasl_code) AS ShortlySaf,
-            (select [dayname] from dbo.CDDayname where daycode = gdw.TBLTimeTable.daycode) AS [dayname],
-            (SELECT hasa_name from dbo.CDAlhasas where hasa_code = gdw.TBLTimeTable.hasa_code) AS hasa_name,
-            (SELECT hesasno FROM CDSubjectWekly WHERE alsofof_code = gdw.TBLTimeTable.alsofof_code AND SubjectId = gdw.TBLTimeTable.SubjectId) AS hesasno,
-            (Select ISNULL(EMP_FIRST_NAME, '') + ' ' + ISNULL(EMP_FATHER_NAME, '') + ' ' + ISNULL(EMP_FAM_NAME, '') + ' ' + ISNULL(EMP_FOURTH_NAME, '') From TBL_Emp Where EmpID = gdw.TBLTimeTable.EmpID) AS emp_name
-            FROM gdw.TBLTimeTable
-            WHERE asase_code = @asase_code</CommandText>
-        <QueryParameters>
-          <QueryParameter Name="@asase_code">
-            <Value>=Parameters!asase_code.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
-      </Query>
-    </DataSet>
-    <DataSet Name="DataSetCD_Asasetime">
-      <Fields>
-        <Field Name="asase_code">
-          <DataField>asase_code</DataField>
-          <rd:TypeName>System.Byte</rd:TypeName>
-        </Field>
-        <Field Name="asase_year">
-          <DataField>asase_year</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="SPOS">
-          <DataField>SPOS</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="school_allcode">
-          <DataField>school_allcode</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="GOV_CD">
-          <DataField>GOV_CD</DataField>
-          <rd:TypeName>System.Byte</rd:TypeName>
-        </Field>
-        <Field Name="GOV">
-          <DataField>GOV</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EDARET">
-          <DataField>EDARET</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="SCHOOL">
-          <DataField>SCHOOL</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSourceSchoolWeeklyPeriods</DataSourceName>
-        <CommandText>SELECT [asase_code]
-      ,[asase_year]
-      ,[SPOS]
-      ,[school_allcode],
-(SELECT gov FROM dbo.TBLSCHOOL WHERE SPOS = dbo.CD_Asasetime.SPOS) AS GOV_CD,
-(SELECT GOV FROM dbo.CDGov WHERE GOV_CD = (SELECT gov FROM dbo.TBLSCHOOL WHERE SPOS = dbo.CD_Asasetime.SPOS)) AS GOV,
-(SELECT EDARET FROM dbo.CDEDARET WHERE EPOS = (SELECT NOEDARET FROM TBLSCHOOL WHERE SPOS = dbo.CD_Asasetime.SPOS)) AS EDARET,
-(SELECT SCHOOL FROM dbo.TBLSCHOOL WHERE SPOS = dbo.CD_Asasetime.SPOS) AS SCHOOL
-  FROM [CD_Asasetime]
-WHERE asase_code = @asase_code</CommandText>
-        <QueryParameters>
-          <QueryParameter Name="@asase_code">
-            <Value>=Parameters!asase_code.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
-      </Query>
-    </DataSet>
-    <DataSet Name="Dayz">
-      <Fields>
-        <Field Name="daycode">
-          <DataField>daycode</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="dayname">
-          <DataField>dayname</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSourceSchoolWeeklyPeriods</DataSourceName>
-        <CommandText>SELECT daycode, [dayname] from dbo.CDDayname</CommandText>
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
-      </Query>
-    </DataSet>
-    <DataSet Name="Saf">
-      <Fields>
-        <Field Name="alsofof_code">
-          <DataField>alsofof_code</DataField>
-          <rd:TypeName>System.Byte</rd:TypeName>
-        </Field>
-        <Field Name="alsofof_name">
-          <DataField>alsofof_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSourceSchoolWeeklyPeriods</DataSourceName>
-        <CommandText>SELECT alsofof_code, alsofof_name FROM CDAlsofof</CommandText>
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
-      </Query>
-    </DataSet>
-  </DataSets>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
       <Tablix Name="Tablix1">
@@ -654,6 +477,7 @@ WHERE asase_code = @asase_code</CommandText>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <LayoutDirection>RTL</LayoutDirection>
         <DataSetName>DataSetMainData</DataSetName>
         <Filters>
           <Filter>
@@ -684,30 +508,6 @@ WHERE asase_code = @asase_code</CommandText>
     <Height>0.78125in</Height>
     <Style />
   </Body>
-  <ReportParameters>
-    <ReportParameter Name="asase_code">
-      <DataType>Integer</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>2</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>العام</Prompt>
-      <Hidden>true</Hidden>
-      <UsedInQuery>True</UsedInQuery>
-    </ReportParameter>
-    <ReportParameter Name="Saf">
-      <DataType>Integer</DataType>
-      <Prompt>الصف</Prompt>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>Saf</DataSetName>
-          <ValueField>alsofof_code</ValueField>
-          <LabelField>alsofof_name</LabelField>
-        </DataSetReference>
-      </ValidValues>
-    </ReportParameter>
-  </ReportParameters>
   <Width>7.40625in</Width>
   <Page>
     <PageHeader>
@@ -1068,8 +868,210 @@ WHERE asase_code = @asase_code</CommandText>
     <BottomMargin>1in</BottomMargin>
     <Style />
   </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSourceSchoolWeeklyPeriods">
+      <DataSourceReference>DataSourceSchoolWeeklyPeriods</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>50b60119-8d83-4419-83d5-0290ea9daca1</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSetMainData">
+      <Query>
+        <DataSourceName>DataSourceSchoolWeeklyPeriods</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@asase_code">
+            <Value>=Parameters!asase_code.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT EmpID, asase_code, daycode, hasa_code, alsofof_code, fasl_code, SubjectId,
+            (select [Subject] from CD_Subject where SubjectId = gdw.TBLTimeTable.SubjectId) AS [Subject],
+            (Select Shortly From CDAlsofof Where alsofof_code = gdw.TBLTimeTable.alsofof_code) AS ShortlyFasl,
+            (Select Shortly From CDEFasl Where fasl_code = gdw.TBLTimeTable.fasl_code) AS ShortlySaf,
+            (select [dayname] from dbo.CDDayname where daycode = gdw.TBLTimeTable.daycode) AS [dayname],
+            (SELECT hasa_name from dbo.CDAlhasas where hasa_code = gdw.TBLTimeTable.hasa_code) AS hasa_name,
+            (SELECT hesasno FROM CDSubjectWekly WHERE alsofof_code = gdw.TBLTimeTable.alsofof_code AND SubjectId = gdw.TBLTimeTable.SubjectId) AS hesasno,
+            (Select ISNULL(EMP_FIRST_NAME, '') + ' ' + ISNULL(EMP_FATHER_NAME, '') + ' ' + ISNULL(EMP_FAM_NAME, '') + ' ' + ISNULL(EMP_FOURTH_NAME, '') From TBL_Emp Where EmpID = gdw.TBLTimeTable.EmpID) AS emp_name
+            FROM gdw.TBLTimeTable
+            WHERE asase_code = @asase_code</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="asase_code">
+          <DataField>asase_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="EmpID">
+          <DataField>EmpID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="hasa_code">
+          <DataField>hasa_code</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="daycode">
+          <DataField>daycode</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="alsofof_code">
+          <DataField>alsofof_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="SubjectId">
+          <DataField>SubjectId</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="fasl_code">
+          <DataField>fasl_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="ShortlyFasl">
+          <DataField>ShortlyFasl</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Subject">
+          <DataField>Subject</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShortlySaf">
+          <DataField>ShortlySaf</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="dayname">
+          <DataField>dayname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="hasa_name">
+          <DataField>hasa_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="emp_name">
+          <DataField>emp_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="hesasno">
+          <DataField>hesasno</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataSetCD_Asasetime">
+      <Query>
+        <DataSourceName>DataSourceSchoolWeeklyPeriods</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@asase_code">
+            <Value>=Parameters!asase_code.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT [asase_code]
+      ,[asase_year]
+      ,[SPOS]
+      ,[school_allcode],
+(SELECT gov FROM dbo.TBLSCHOOL WHERE SPOS = dbo.CD_Asasetime.SPOS) AS GOV_CD,
+(SELECT GOV FROM dbo.CDGov WHERE GOV_CD = (SELECT gov FROM dbo.TBLSCHOOL WHERE SPOS = dbo.CD_Asasetime.SPOS)) AS GOV,
+(SELECT EDARET FROM dbo.CDEDARET WHERE EPOS = (SELECT NOEDARET FROM TBLSCHOOL WHERE SPOS = dbo.CD_Asasetime.SPOS)) AS EDARET,
+(SELECT SCHOOL FROM dbo.TBLSCHOOL WHERE SPOS = dbo.CD_Asasetime.SPOS) AS SCHOOL
+  FROM [CD_Asasetime]
+WHERE asase_code = @asase_code</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="asase_code">
+          <DataField>asase_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="asase_year">
+          <DataField>asase_year</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SPOS">
+          <DataField>SPOS</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="school_allcode">
+          <DataField>school_allcode</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="GOV_CD">
+          <DataField>GOV_CD</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="GOV">
+          <DataField>GOV</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EDARET">
+          <DataField>EDARET</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SCHOOL">
+          <DataField>SCHOOL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Dayz">
+      <Query>
+        <DataSourceName>DataSourceSchoolWeeklyPeriods</DataSourceName>
+        <CommandText>SELECT daycode, [dayname] from dbo.CDDayname</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="daycode">
+          <DataField>daycode</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="dayname">
+          <DataField>dayname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Saf">
+      <Query>
+        <DataSourceName>DataSourceSchoolWeeklyPeriods</DataSourceName>
+        <CommandText>SELECT alsofof_code, alsofof_name FROM CDAlsofof</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="alsofof_code">
+          <DataField>alsofof_code</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="alsofof_name">
+          <DataField>alsofof_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="asase_code">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>2</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>العام</Prompt>
+      <Hidden>true</Hidden>
+      <UsedInQuery>True</UsedInQuery>
+    </ReportParameter>
+    <ReportParameter Name="Saf">
+      <DataType>Integer</DataType>
+      <Prompt>الصف</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Saf</DataSetName>
+          <ValueField>alsofof_code</ValueField>
+          <LabelField>alsofof_name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
   <Language>en-US</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <rd:ReportID>78285875-d124-480c-aa94-fae17c3ad719</rd:ReportID>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>78285875-d124-480c-aa94-fae17c3ad719</rd:ReportID>
 </Report>
