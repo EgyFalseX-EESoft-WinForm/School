@@ -322,25 +322,27 @@ namespace SchoolWeeklyPeriods
         private string AvailablePeriod(string daycode, string EmpID, string SubjectId, bool FristEmptyPeriod, string alsofof_code, string fasl_code)
         {
             string ReturnMe = string.Empty;
+            //Check if this Day have alot of periods for this Emp
+            int FreePeriodCountPerDayForEmp = Convert.ToInt32(FXFW.SqlDB.LoadDataTable(string.Format(@"SELECT IsNull(CEILING(((SELECT nesabfealy FROM gdw.TBLNesab Where EmpID = {0}) * 1.0) / (SELECT COUNT(daycode) FROM (SELECT daycode FROM gdw.CD_HesaTime GROUP BY daycode)t)) 
+            - (SELECT COUNT(*) FROM gdw.TBLTimeTable WHERE asase_code = {1} AND EmpID = {0} AND daycode = {2}), 0)", EmpID, FXFW.SqlDB.asase_code, daycode)).Rows[0][0]);
+            if (FreePeriodCountPerDayForEmp <= 0)
+                return ReturnMe;
 
+            
+            
+
+            // Add All Free Periods for selected (Emp, fasl) order by priority
             DataTable dtAllPeriod = FXFW.SqlDB.LoadDataTable(string.Format(@"SELECT hasa_code from TBL_Priority Where SubjectId = {0} AND
-            NOT EXISTS(
-            Select hasa_code From gdw.TBLTimeTable Where asase_code = {1} AND daycode = {2} AND alsofof_code = {3} AND fasl_code = {4} AND hasa_code = TBL_Priority.hasa_code)
-            AND NOT EXISTS(
-            Select hasa_code From TBLTeacherNoDays Where daycode = {2} AND EmpID = {5} AND hasa_code = TBL_Priority.hasa_code)
-            AND NOT EXISTS(
-            Select hasa_code From gdw.TBLTimeTable Where asase_code = {1} AND daycode = {2} AND hasa_code = TBL_Priority.hasa_code AND EmpID = {5})"
+            NOT EXISTS(Select hasa_code From gdw.TBLTimeTable Where asase_code = {1} AND daycode = {2} AND alsofof_code = {3} AND fasl_code = {4} AND hasa_code = TBL_Priority.hasa_code)
+            AND NOT EXISTS(Select hasa_code From TBLTeacherNoDays Where daycode = {2} AND EmpID = {5} AND hasa_code = TBL_Priority.hasa_code)
+            AND NOT EXISTS(Select hasa_code From gdw.TBLTimeTable Where asase_code = {1} AND daycode = {2} AND hasa_code = TBL_Priority.hasa_code AND EmpID = {5})"
             , SubjectId, FXFW.SqlDB.asase_code, daycode, alsofof_code, fasl_code, EmpID));
             using (DataTable dtAllPeriodEXT = FXFW.SqlDB.LoadDataTable(string.Format(@"Select hasa_code From gdw.CD_HesaTime Where daycode = {0} AND 
             marhala_code = (SELECT marhala_code FROM dbo.CDAlsofof WHERE alsofof_code = {1}) AND 
             NOT EXISTS(SELECT hasa_code FROM TBL_Priority Where SubjectId = {2} AND hasa_code = gdw.CD_HesaTime.hasa_code)                 
-            AND
-            NOT EXISTS(
-            Select hasa_code From gdw.TBLTimeTable Where asase_code = {3} AND daycode = {0} AND alsofof_code = {1} AND fasl_code = {4} AND hasa_code = gdw.CD_HesaTime.hasa_code)
-            AND NOT EXISTS(
-            Select hasa_code From TBLTeacherNoDays Where daycode = {0} AND EmpID = {5} AND hasa_code = gdw.CD_HesaTime.hasa_code)
-            AND NOT EXISTS(
-            Select hasa_code From gdw.TBLTimeTable Where asase_code = {3} AND daycode = {0} AND hasa_code = gdw.CD_HesaTime.hasa_code AND EmpID = {5})"
+            AND NOT EXISTS(Select hasa_code From gdw.TBLTimeTable Where asase_code = {3} AND daycode = {0} AND alsofof_code = {1} AND fasl_code = {4} AND hasa_code = gdw.CD_HesaTime.hasa_code)
+            AND NOT EXISTS(Select hasa_code From TBLTeacherNoDays Where daycode = {0} AND EmpID = {5} AND hasa_code = gdw.CD_HesaTime.hasa_code)
+            AND NOT EXISTS(Select hasa_code From gdw.TBLTimeTable Where asase_code = {3} AND daycode = {0} AND hasa_code = gdw.CD_HesaTime.hasa_code AND EmpID = {5})"
             , daycode, alsofof_code, SubjectId, FXFW.SqlDB.asase_code, fasl_code, EmpID)))
             {
                 foreach (DataRow item in dtAllPeriodEXT.Rows)
@@ -350,6 +352,12 @@ namespace SchoolWeeklyPeriods
             for (int i = 0; i < dtAllPeriod.Rows.Count; i++)
             {
                 int  hasa_code = (int)dtAllPeriod.Rows[i]["hasa_code"];
+                //Check if this Emp 3 Sequentially Periods
+                DataTable dtCount = FXFW.SqlDB.LoadDataTable(string.Format(@"SELECT ISNULL(COUNT(*), 0) FROM gdw.TBLTimeTable
+                    WHERE asase_code = {0} AND EmpID = {1} AND daycode = {2} AND (hasa_code BETWEEN {3} AND {4})", FXFW.SqlDB.asase_code, EmpID, daycode, hasa_code - 3, hasa_code));
+                if (Convert.ToInt32(dtCount.Rows[0][0]) >= 3)
+                    continue;
+
                 if (FristEmptyPeriod == false && dtAllPeriod.Rows.Count > 2 && hasa_code != 1)
                 {
                     if (PeriodBusy(EmpID, (hasa_code - 1).ToString()))
@@ -568,7 +576,7 @@ namespace SchoolWeeklyPeriods
         }
         private int MaxPeriodPerDay(string EmpID, int daysCount)
         {
-            //return how much period as a mix period for this Emp
+            //return how much period as a max period for this Emp
             int SumEmpPeriodShouldHave = (int)FXFW.SqlDB.LoadDataTable(string.Format(@"SELECT ISNULL(sum(x.PeriodCount),0) AS PeriodCount
             From
             (
@@ -578,7 +586,10 @@ namespace SchoolWeeklyPeriods
             WHERE asase_code = {0} AND EmpID = {1}
             ) x", FXFW.SqlDB.asase_code, EmpID)).Rows[0][0];
             int WeekDaysCount = daysCount;
-            return SumEmpPeriodShouldHave / WeekDaysCount;
+            if ((SumEmpPeriodShouldHave * 1.0) / WeekDaysCount % 1 > 0)
+                return (SumEmpPeriodShouldHave / WeekDaysCount) + 1;
+            else
+                return SumEmpPeriodShouldHave / WeekDaysCount;
         }
         private int EmpAddedPeriods(string EmpID)
         {
@@ -625,7 +636,7 @@ namespace SchoolWeeklyPeriods
                 (SELECT ISNULL(COUNT(*), 0) FROM gdw.TBLTimeTable WHERE asase_code = gdw.TBLTeachersPlan.asase_code AND EmpID = gdw.TBLTeachersPlan.EmpID AND alsofof_code = gdw.TBLTeachersPlan.alsofof_code AND SubjectId = gdw.TBLTeachersPlan.SubjectId AND fasl_code = gdw.TBLTeachersPlan.fasl_code), 0) 
                 AS Remaning
                 From gdw.TBLTeachersPlan 
-                Where EmpID = {0} AND asase_code = {1} order by twoh desc", EmpID, FXFW.SqlDB.asase_code));// Emp Subjects
+                Where EmpID = {0} AND asase_code = {1} order by twoh desc", EmpID, FXFW.SqlDB.asase_code));// Emp Subjects And how many Period remaining for each
 
                 foreach (DataRow rowSubject in dtSubject.Rows)
                 {
@@ -641,7 +652,7 @@ namespace SchoolWeeklyPeriods
                                 //check if this emp have maxium period for this day or not
                                 int EmpDaySavedPeriod = (int)FXFW.SqlDB.LoadDataTable(string.Format(@"SELECT COUNT(*) FROM gdw.TBLTimeTable WHERE asase_code = {0} AND EmpID = {1} AND daycode = {2}",
                                     FXFW.SqlDB.asase_code, EmpID, rowDays["daycode"])).Rows[0][0];
-                                if (MaxDayPeriod + 1 < EmpDaySavedPeriod)
+                                if (MaxDayPeriod < EmpDaySavedPeriod)
                                     continue;// this mean that this emp have the max period for this day
                             }
                             if (SubjectPeriodRemain <= 0)
