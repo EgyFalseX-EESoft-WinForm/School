@@ -97,7 +97,7 @@ namespace SchoolWeeklyPeriods
 
             if (!System.IO.File.Exists(filePath))
             {
-                using (FXFW.LicenseKeyFrm dlg = new FXFW.LicenseKeyFrm(Application.ProductName))
+                using (FXFW.License.LicenseKeyFrm dlg = new FXFW.License.LicenseKeyFrm(Application.ProductName))
                 {
                     dlg.ShowDialog();
                 }
@@ -110,7 +110,7 @@ namespace SchoolWeeklyPeriods
                 System.IO.StreamReader sr = new System.IO.StreamReader(filePath);
                 string Key = sr.ReadToEnd();
                 sr.Close();
-                if (FXFW.LicenseKeyFrm.Compare(Key, Application.ProductName))
+                if (FXFW.License.LicenseKeyFrm.Compare(Key, Application.ProductName))
                     return true;
                 else
                 {

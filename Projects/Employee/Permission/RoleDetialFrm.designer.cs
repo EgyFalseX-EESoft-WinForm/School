@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoleDetialFrm));
             this.groupControlSelect = new DevExpress.XtraEditors.GroupControl();
             this.LUEItems = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.dockManagerMain = new DevExpress.XtraBars.Docking.DockManager();
+            this.dockManagerMain = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.pnlContainerMain = new DevExpress.XtraBars.Docking.DockPanel();
+            this.DPReport = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel5_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.imageCollection32 = new DevExpress.Utils.ImageCollection(this.components);
             this.DPCode = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.navBarControlCode = new DevExpress.XtraNavBar.NavBarControl();
@@ -56,7 +60,6 @@
             this.navBarItemEmpCD_GzaaType = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemEmpCD_GehaGazaa = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemEmpCD_EmpTIME = new DevExpress.XtraNavBar.NavBarItem();
-            this.imageCollection32 = new DevExpress.Utils.ImageCollection();
             this.DPData = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.navBarControlData = new DevExpress.XtraNavBar.NavBarControl();
@@ -83,29 +86,32 @@
             this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.navBarControlQry = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.DPReport = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel5_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.navBarControlReport = new DevExpress.XtraNavBar.NavBarControl();
-            this.navBarGroup6 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItemEmpDeployRpt = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarGroup7 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarGroup8 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarGroup9 = new DevExpress.XtraNavBar.NavBarGroup();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.CEUpdate = new DevExpress.XtraEditors.CheckEdit();
             this.CESelect = new DevExpress.XtraEditors.CheckEdit();
             this.CEDelete = new DevExpress.XtraEditors.CheckEdit();
             this.CEInsert = new DevExpress.XtraEditors.CheckEdit();
+            this.navBarControlReport = new DevExpress.XtraNavBar.NavBarControl();
+            this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItemEmpXRepEmpAddress = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemEmpXRepEmpagazat = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemEmpXRepEmpAll = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemEmpXRepEmpDetail = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup7 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroup8 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroup9 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItemEmpDeployRpt = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlSelect)).BeginInit();
             this.groupControlSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LUEItems.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManagerMain)).BeginInit();
             this.pnlContainerMain.SuspendLayout();
+            this.DPReport.SuspendLayout();
+            this.dockPanel5_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection32)).BeginInit();
             this.DPCode.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection32)).BeginInit();
             this.DPData.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlData)).BeginInit();
@@ -115,15 +121,13 @@
             this.DPQuery.SuspendLayout();
             this.dockPanel4_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlQry)).BeginInit();
-            this.DPReport.SuspendLayout();
-            this.dockPanel5_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControlReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CEUpdate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CESelect.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CEDelete.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CEInsert.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControlReport)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControlSelect
@@ -179,7 +183,7 @@
             // 
             // pnlContainerMain
             // 
-            this.pnlContainerMain.ActiveChild = this.DPCode;
+            this.pnlContainerMain.ActiveChild = this.DPReport;
             this.pnlContainerMain.Controls.Add(this.DPCode);
             this.pnlContainerMain.Controls.Add(this.DPData);
             this.pnlContainerMain.Controls.Add(this.DPPriv);
@@ -195,6 +199,65 @@
             this.pnlContainerMain.Size = new System.Drawing.Size(334, 470);
             this.pnlContainerMain.Tabbed = true;
             this.pnlContainerMain.Text = "panelContainer1";
+            // 
+            // DPReport
+            // 
+            this.DPReport.Controls.Add(this.dockPanel5_Container);
+            this.DPReport.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            this.DPReport.FloatSize = new System.Drawing.Size(336, 404);
+            this.DPReport.ID = new System.Guid("0f036360-d6ff-485c-9f5f-15222cfa0e5f");
+            this.DPReport.Location = new System.Drawing.Point(4, 23);
+            this.DPReport.Name = "DPReport";
+            this.DPReport.OriginalSize = new System.Drawing.Size(200, 200);
+            this.DPReport.Size = new System.Drawing.Size(326, 416);
+            this.DPReport.Text = "التقارير";
+            // 
+            // dockPanel5_Container
+            // 
+            this.dockPanel5_Container.Controls.Add(this.navBarControlReport);
+            this.dockPanel5_Container.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel5_Container.Name = "dockPanel5_Container";
+            this.dockPanel5_Container.Size = new System.Drawing.Size(326, 416);
+            this.dockPanel5_Container.TabIndex = 0;
+            // 
+            // imageCollection32
+            // 
+            this.imageCollection32.ImageSize = new System.Drawing.Size(32, 32);
+            this.imageCollection32.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection32.ImageStream")));
+            this.imageCollection32.Images.SetKeyName(0, "Roles.png");
+            this.imageCollection32.Images.SetKeyName(1, "Users.png");
+            this.imageCollection32.Images.SetKeyName(2, "UserRoles.png");
+            this.imageCollection32.Images.SetKeyName(3, "RoleDetial.png");
+            this.imageCollection32.Images.SetKeyName(4, "Reports.png");
+            this.imageCollection32.Images.SetKeyName(5, "DeployRpt.png");
+            this.imageCollection32.Images.SetKeyName(6, "AppOptions.png");
+            this.imageCollection32.Images.SetKeyName(7, "CD_AsaseEmp.png");
+            this.imageCollection32.Images.SetKeyName(8, "CD_EmpState.png");
+            this.imageCollection32.Images.SetKeyName(9, "CD_JobDescription.png");
+            this.imageCollection32.Images.SetKeyName(10, "CD_EmpJob.png");
+            this.imageCollection32.Images.SetKeyName(11, "CD_Department.png");
+            this.imageCollection32.Images.SetKeyName(12, "CD_Subject.png");
+            this.imageCollection32.Images.SetKeyName(13, "CD_QualifiedPlace.png");
+            this.imageCollection32.Images.SetKeyName(14, "CDQualification.png");
+            this.imageCollection32.Images.SetKeyName(15, "CD_Specialization.png");
+            this.imageCollection32.Images.SetKeyName(16, "CD_MaritalStatus.png");
+            this.imageCollection32.Images.SetKeyName(17, "CD_Courses.png");
+            this.imageCollection32.Images.SetKeyName(18, "CDPlaceTraining.png");
+            this.imageCollection32.Images.SetKeyName(19, "CD_AgazaType.png");
+            this.imageCollection32.Images.SetKeyName(20, "TBL_Emp.png");
+            this.imageCollection32.Images.SetKeyName(21, "CDTakdeer.png");
+            this.imageCollection32.Images.SetKeyName(22, "CD_EznType.png");
+            this.imageCollection32.Images.SetKeyName(23, "CD_GzaaType.png");
+            this.imageCollection32.Images.SetKeyName(24, "CD_GehaGazaa.png");
+            this.imageCollection32.Images.SetKeyName(25, "Emp_Moaahel.png");
+            this.imageCollection32.Images.SetKeyName(26, "EMP_agazat.png");
+            this.imageCollection32.Images.SetKeyName(27, "EMP_Later.png");
+            this.imageCollection32.Images.SetKeyName(28, "EMP_ezn.png");
+            this.imageCollection32.Images.SetKeyName(29, "EMP_gzaat.png");
+            this.imageCollection32.Images.SetKeyName(30, "EMP_training.png");
+            this.imageCollection32.Images.SetKeyName(31, "EMP_TAMEEN.png");
+            this.imageCollection32.Images.SetKeyName(32, "EMP_report.png");
+            this.imageCollection32.Images.SetKeyName(33, "CD_EmpTIME.png");
             // 
             // DPCode
             // 
@@ -423,45 +486,6 @@
             this.navBarItemEmpCD_EmpTIME.Name = "navBarItemEmpCD_EmpTIME";
             this.navBarItemEmpCD_EmpTIME.SmallImageIndex = 33;
             this.navBarItemEmpCD_EmpTIME.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem_LinkClicked);
-            // 
-            // imageCollection32
-            // 
-            this.imageCollection32.ImageSize = new System.Drawing.Size(32, 32);
-            this.imageCollection32.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection32.ImageStream")));
-            this.imageCollection32.Images.SetKeyName(0, "Roles.png");
-            this.imageCollection32.Images.SetKeyName(1, "Users.png");
-            this.imageCollection32.Images.SetKeyName(2, "UserRoles.png");
-            this.imageCollection32.Images.SetKeyName(3, "RoleDetial.png");
-            this.imageCollection32.Images.SetKeyName(4, "Reports.png");
-            this.imageCollection32.Images.SetKeyName(5, "DeployRpt.png");
-            this.imageCollection32.Images.SetKeyName(6, "AppOptions.png");
-            this.imageCollection32.Images.SetKeyName(7, "CD_AsaseEmp.png");
-            this.imageCollection32.Images.SetKeyName(8, "CD_EmpState.png");
-            this.imageCollection32.Images.SetKeyName(9, "CD_JobDescription.png");
-            this.imageCollection32.Images.SetKeyName(10, "CD_EmpJob.png");
-            this.imageCollection32.Images.SetKeyName(11, "CD_Department.png");
-            this.imageCollection32.Images.SetKeyName(12, "CD_Subject.png");
-            this.imageCollection32.Images.SetKeyName(13, "CD_QualifiedPlace.png");
-            this.imageCollection32.Images.SetKeyName(14, "CDQualification.png");
-            this.imageCollection32.Images.SetKeyName(15, "CD_Specialization.png");
-            this.imageCollection32.Images.SetKeyName(16, "CD_MaritalStatus.png");
-            this.imageCollection32.Images.SetKeyName(17, "CD_Courses.png");
-            this.imageCollection32.Images.SetKeyName(18, "CDPlaceTraining.png");
-            this.imageCollection32.Images.SetKeyName(19, "CD_AgazaType.png");
-            this.imageCollection32.Images.SetKeyName(20, "TBL_Emp.png");
-            this.imageCollection32.Images.SetKeyName(21, "CDTakdeer.png");
-            this.imageCollection32.Images.SetKeyName(22, "CD_EznType.png");
-            this.imageCollection32.Images.SetKeyName(23, "CD_GzaaType.png");
-            this.imageCollection32.Images.SetKeyName(24, "CD_GehaGazaa.png");
-            this.imageCollection32.Images.SetKeyName(25, "Emp_Moaahel.png");
-            this.imageCollection32.Images.SetKeyName(26, "EMP_agazat.png");
-            this.imageCollection32.Images.SetKeyName(27, "EMP_Later.png");
-            this.imageCollection32.Images.SetKeyName(28, "EMP_ezn.png");
-            this.imageCollection32.Images.SetKeyName(29, "EMP_gzaat.png");
-            this.imageCollection32.Images.SetKeyName(30, "EMP_training.png");
-            this.imageCollection32.Images.SetKeyName(31, "EMP_TAMEEN.png");
-            this.imageCollection32.Images.SetKeyName(32, "EMP_report.png");
-            this.imageCollection32.Images.SetKeyName(33, "CD_EmpTIME.png");
             // 
             // DPData
             // 
@@ -743,92 +767,6 @@
             this.navBarGroup5.NavigationPaneVisible = false;
             this.navBarGroup5.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroup5.SmallImage")));
             // 
-            // DPReport
-            // 
-            this.DPReport.Controls.Add(this.dockPanel5_Container);
-            this.DPReport.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.DPReport.FloatSize = new System.Drawing.Size(336, 404);
-            this.DPReport.ID = new System.Guid("0f036360-d6ff-485c-9f5f-15222cfa0e5f");
-            this.DPReport.Location = new System.Drawing.Point(4, 23);
-            this.DPReport.Name = "DPReport";
-            this.DPReport.OriginalSize = new System.Drawing.Size(200, 200);
-            this.DPReport.Size = new System.Drawing.Size(326, 416);
-            this.DPReport.Text = "التقارير";
-            // 
-            // dockPanel5_Container
-            // 
-            this.dockPanel5_Container.Controls.Add(this.navBarControlReport);
-            this.dockPanel5_Container.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel5_Container.Name = "dockPanel5_Container";
-            this.dockPanel5_Container.Size = new System.Drawing.Size(326, 416);
-            this.dockPanel5_Container.TabIndex = 0;
-            // 
-            // navBarControlReport
-            // 
-            this.navBarControlReport.ActiveGroup = this.navBarGroup6;
-            this.navBarControlReport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navBarControlReport.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.navBarGroup6,
-            this.navBarGroup4,
-            this.navBarGroup7,
-            this.navBarGroup8,
-            this.navBarGroup9});
-            this.navBarControlReport.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
-            this.navBarItemEmpDeployRpt});
-            this.navBarControlReport.Location = new System.Drawing.Point(0, 0);
-            this.navBarControlReport.Name = "navBarControlReport";
-            this.navBarControlReport.OptionsNavPane.ExpandedWidth = 192;
-            this.navBarControlReport.Size = new System.Drawing.Size(326, 416);
-            this.navBarControlReport.SmallImages = this.imageCollection32;
-            this.navBarControlReport.TabIndex = 10;
-            this.navBarControlReport.Text = "navBarControl1";
-            this.navBarControlReport.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinExplorerBarViewInfoRegistrator("DevExpress Style");
-            // 
-            // navBarGroup6
-            // 
-            this.navBarGroup6.Caption = "تنصيب التقارير";
-            this.navBarGroup6.Expanded = true;
-            this.navBarGroup6.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemEmpDeployRpt)});
-            this.navBarGroup6.Name = "navBarGroup6";
-            // 
-            // navBarItemEmpDeployRpt
-            // 
-            this.navBarItemEmpDeployRpt.Caption = "تنصيب التقارير";
-            this.navBarItemEmpDeployRpt.LargeImageIndex = 5;
-            this.navBarItemEmpDeployRpt.Name = "navBarItemEmpDeployRpt";
-            this.navBarItemEmpDeployRpt.SmallImageIndex = 5;
-            this.navBarItemEmpDeployRpt.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem_LinkClicked);
-            // 
-            // navBarGroup4
-            // 
-            this.navBarGroup4.Caption = "تقارير 1";
-            this.navBarGroup4.LargeImage = global::Employee.Properties.Resources.Print;
-            this.navBarGroup4.Name = "navBarGroup4";
-            this.navBarGroup4.NavigationPaneVisible = false;
-            this.navBarGroup4.SmallImage = global::Employee.Properties.Resources.Print;
-            // 
-            // navBarGroup7
-            // 
-            this.navBarGroup7.Caption = "تقارير 2";
-            this.navBarGroup7.LargeImage = global::Employee.Properties.Resources.Print;
-            this.navBarGroup7.Name = "navBarGroup7";
-            this.navBarGroup7.SmallImage = global::Employee.Properties.Resources.Print;
-            // 
-            // navBarGroup8
-            // 
-            this.navBarGroup8.Caption = "تقارير 3";
-            this.navBarGroup8.LargeImage = global::Employee.Properties.Resources.Print;
-            this.navBarGroup8.Name = "navBarGroup8";
-            this.navBarGroup8.SmallImage = global::Employee.Properties.Resources.Print;
-            // 
-            // navBarGroup9
-            // 
-            this.navBarGroup9.Caption = "تقارير 4";
-            this.navBarGroup9.LargeImage = global::Employee.Properties.Resources.Print;
-            this.navBarGroup9.Name = "navBarGroup9";
-            this.navBarGroup9.SmallImage = global::Employee.Properties.Resources.Print;
-            // 
             // groupControl2
             // 
             this.groupControl2.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -876,6 +814,105 @@
             this.CEInsert.Size = new System.Drawing.Size(75, 19);
             this.CEInsert.TabIndex = 0;
             // 
+            // navBarControlReport
+            // 
+            this.navBarControlReport.ActiveGroup = this.navBarGroup4;
+            this.navBarControlReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navBarControlReport.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
+            this.navBarGroup4,
+            this.navBarGroup7,
+            this.navBarGroup8,
+            this.navBarGroup9});
+            this.navBarControlReport.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
+            this.navBarItemEmpDeployRpt,
+            this.navBarItemEmpXRepEmpAddress,
+            this.navBarItemEmpXRepEmpagazat,
+            this.navBarItemEmpXRepEmpAll,
+            this.navBarItemEmpXRepEmpDetail});
+            this.navBarControlReport.LargeImages = this.imageCollection32;
+            this.navBarControlReport.Location = new System.Drawing.Point(0, 0);
+            this.navBarControlReport.Name = "navBarControlReport";
+            this.navBarControlReport.OptionsNavPane.ExpandedWidth = 326;
+            this.navBarControlReport.Size = new System.Drawing.Size(326, 416);
+            this.navBarControlReport.SmallImages = this.imageCollection32;
+            this.navBarControlReport.TabIndex = 10;
+            this.navBarControlReport.Text = "navBarControl1";
+            this.navBarControlReport.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinExplorerBarViewInfoRegistrator("DevExpress Style");
+            // 
+            // navBarGroup4
+            // 
+            this.navBarGroup4.Caption = "تقارير 1";
+            this.navBarGroup4.Expanded = true;
+            this.navBarGroup4.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemEmpXRepEmpAddress),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemEmpXRepEmpagazat),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemEmpXRepEmpAll),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemEmpXRepEmpDetail)});
+            this.navBarGroup4.LargeImage = global::Employee.Properties.Resources.Print;
+            this.navBarGroup4.Name = "navBarGroup4";
+            this.navBarGroup4.NavigationPaneVisible = false;
+            this.navBarGroup4.SmallImage = global::Employee.Properties.Resources.Print;
+            // 
+            // navBarItemEmpXRepEmpAddress
+            // 
+            this.navBarItemEmpXRepEmpAddress.Caption = "سجل العناوين";
+            this.navBarItemEmpXRepEmpAddress.LargeImageIndex = 4;
+            this.navBarItemEmpXRepEmpAddress.Name = "navBarItemEmpXRepEmpAddress";
+            this.navBarItemEmpXRepEmpAddress.SmallImageIndex = 4;
+            this.navBarItemEmpXRepEmpAddress.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem_LinkClicked);
+            // 
+            // navBarItemEmpXRepEmpagazat
+            // 
+            this.navBarItemEmpXRepEmpagazat.Caption = "غياب العاملين";
+            this.navBarItemEmpXRepEmpagazat.LargeImageIndex = 4;
+            this.navBarItemEmpXRepEmpagazat.Name = "navBarItemEmpXRepEmpagazat";
+            this.navBarItemEmpXRepEmpagazat.SmallImageIndex = 4;
+            this.navBarItemEmpXRepEmpagazat.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem_LinkClicked);
+            // 
+            // navBarItemEmpXRepEmpAll
+            // 
+            this.navBarItemEmpXRepEmpAll.Caption = "سجل شئون العاملين";
+            this.navBarItemEmpXRepEmpAll.LargeImageIndex = 4;
+            this.navBarItemEmpXRepEmpAll.Name = "navBarItemEmpXRepEmpAll";
+            this.navBarItemEmpXRepEmpAll.SmallImageIndex = 4;
+            this.navBarItemEmpXRepEmpAll.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem_LinkClicked);
+            // 
+            // navBarItemEmpXRepEmpDetail
+            // 
+            this.navBarItemEmpXRepEmpDetail.Caption = "بيان حاله";
+            this.navBarItemEmpXRepEmpDetail.LargeImageIndex = 4;
+            this.navBarItemEmpXRepEmpDetail.Name = "navBarItemEmpXRepEmpDetail";
+            this.navBarItemEmpXRepEmpDetail.SmallImageIndex = 4;
+            this.navBarItemEmpXRepEmpDetail.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem_LinkClicked);
+            // 
+            // navBarGroup7
+            // 
+            this.navBarGroup7.Caption = "تقارير 2";
+            this.navBarGroup7.LargeImage = global::Employee.Properties.Resources.Print;
+            this.navBarGroup7.Name = "navBarGroup7";
+            this.navBarGroup7.SmallImage = global::Employee.Properties.Resources.Print;
+            // 
+            // navBarGroup8
+            // 
+            this.navBarGroup8.Caption = "تقارير 3";
+            this.navBarGroup8.LargeImage = global::Employee.Properties.Resources.Print;
+            this.navBarGroup8.Name = "navBarGroup8";
+            this.navBarGroup8.SmallImage = global::Employee.Properties.Resources.Print;
+            // 
+            // navBarGroup9
+            // 
+            this.navBarGroup9.Caption = "تقارير 4";
+            this.navBarGroup9.LargeImage = global::Employee.Properties.Resources.Print;
+            this.navBarGroup9.Name = "navBarGroup9";
+            this.navBarGroup9.SmallImage = global::Employee.Properties.Resources.Print;
+            // 
+            // navBarItemEmpDeployRpt
+            // 
+            this.navBarItemEmpDeployRpt.Caption = "تنصيب التقارير";
+            this.navBarItemEmpDeployRpt.LargeImageIndex = 5;
+            this.navBarItemEmpDeployRpt.Name = "navBarItemEmpDeployRpt";
+            this.navBarItemEmpDeployRpt.SmallImageIndex = 5;
+            // 
             // RoleDetialFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -893,10 +930,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.LUEItems.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManagerMain)).EndInit();
             this.pnlContainerMain.ResumeLayout(false);
+            this.DPReport.ResumeLayout(false);
+            this.dockPanel5_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection32)).EndInit();
             this.DPCode.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection32)).EndInit();
             this.DPData.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlData)).EndInit();
@@ -906,15 +945,13 @@
             this.DPQuery.ResumeLayout(false);
             this.dockPanel4_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlQry)).EndInit();
-            this.DPReport.ResumeLayout(false);
-            this.dockPanel5_Container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControlReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CEUpdate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CESelect.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CEDelete.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CEInsert.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControlReport)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -943,13 +980,6 @@
         private DevExpress.XtraEditors.CheckEdit CESelect;
         private DevExpress.XtraEditors.CheckEdit CEDelete;
         private DevExpress.XtraEditors.CheckEdit CEInsert;
-        private DevExpress.XtraNavBar.NavBarControl navBarControlReport;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup6;
-        private DevExpress.XtraNavBar.NavBarItem navBarItemEmpDeployRpt;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup4;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup7;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup8;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup9;
         private DevExpress.Utils.ImageCollection imageCollection32;
         private DevExpress.XtraNavBar.NavBarControl navBarControlCode;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
@@ -989,5 +1019,15 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItemEmpUserRoles;
         private DevExpress.XtraNavBar.NavBarItem navBarItemEmpAppOptions;
         private DevExpress.XtraNavBar.NavBarItem navBarItemEmpCD_EmpTIME;
+        private DevExpress.XtraNavBar.NavBarControl navBarControlReport;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup4;
+        private DevExpress.XtraNavBar.NavBarItem navBarItemEmpXRepEmpAddress;
+        private DevExpress.XtraNavBar.NavBarItem navBarItemEmpXRepEmpagazat;
+        private DevExpress.XtraNavBar.NavBarItem navBarItemEmpXRepEmpAll;
+        private DevExpress.XtraNavBar.NavBarItem navBarItemEmpXRepEmpDetail;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup7;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup8;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup9;
+        private DevExpress.XtraNavBar.NavBarItem navBarItemEmpDeployRpt;
     }
 }

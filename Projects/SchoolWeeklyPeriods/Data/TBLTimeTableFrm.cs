@@ -643,11 +643,11 @@ namespace SchoolWeeklyPeriods
                     int SubjectPeriodRemain = (int)rowSubject["Remaning"];
                         foreach (DataRow rowDays in dtEmpDays.Rows)// Days For Emp
                         {
-                            //check if this days havr exceeded period for this Emp
-                            if (Convert.ToInt32(FXFW.SqlDB.LoadDataTable(string.Format(@"SELECT COUNT(EmpID) FROM gdw.TBLTimeTable WHERE EmpID = {0} AND daycode = {1}", EmpID, rowDays["daycode"])).Rows[0][0]) > MaxPeriodsPerDay)
-                                continue;
+                            //check if this days havr exceeded period for this Emp --Stoped b cz number is fixed
+                            //if (Convert.ToInt32(FXFW.SqlDB.LoadDataTable(string.Format(@"SELECT COUNT(EmpID) FROM gdw.TBLTimeTable WHERE EmpID = {0} AND daycode = {1} AND asase_code = {2}", EmpID, rowDays["daycode"], FXFW.SqlDB.asase_code)).Rows[0][0]) > MaxPeriodsPerDay)
+                            //    continue;
 
-                            if (FristEmptyPeriod == false)
+                            if (FristEmptyPeriod == false || true) //--Stoped b cz its important to have max period per day
                             {
                                 //check if this emp have maxium period for this day or not
                                 int EmpDaySavedPeriod = (int)FXFW.SqlDB.LoadDataTable(string.Format(@"SELECT COUNT(*) FROM gdw.TBLTimeTable WHERE asase_code = {0} AND EmpID = {1} AND daycode = {2}",

@@ -25,6 +25,7 @@ namespace Employee
             if (FXFW.SqlDB.LoadSqlDBPath("eschool") && Authentication())
             {
                 FXFW.SqlDB.LoadSQLReports();
+                Properties.Settings.Default["eschoolConnectionString"] = FXFW.SqlDB.SqlConStr;
                 Logger = new FXFW.Logger(FXFW.Logger.LanguageInfo.English, Application.ProductName, Properties.Resources.EESoft, false);
                 
                 try

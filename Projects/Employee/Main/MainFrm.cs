@@ -10,6 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using DevExpress.LookAndFeel;
 using DevExpress.XtraBars.Docking;
 using DevExpress.XtraNavBar;
+using Employee.XRep;
 
 namespace Employee
 {
@@ -63,7 +64,7 @@ namespace Employee
                 repositoryItemLookUpEditasase_code_ButtonClick(repositoryItemLookUpEditasase_code, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(new DevExpress.XtraEditors.Controls.EditorButton(btn)));
             }
         }
-        private void LoadSQLReports() 
+        private void LoadSQLReports_Removed() 
         {
             if (FXFW.SqlDB.SQLRep == null)
                 return;
@@ -143,13 +144,11 @@ namespace Employee
                 //continue;
             }
         }
-#endregion
+        #endregion
         #region - Event Handlers -
         private void MainFrm_Load(object sender, EventArgs e)
         {
 
-            //Load Reports from file and create its item in the interface
-            LoadSQLReports();
             //Load Skins and layout
             DevExpress.XtraBars.Helpers.SkinHelper.InitSkinGallery(galleryControlSkins, true);
             UserLookAndFeel.Default.StyleChanged += Default_StyleChanged;
@@ -492,8 +491,34 @@ namespace Employee
             EMP_reportFrm FrmEMP_report = new EMP_reportFrm() { MdiParent = this, Icon = FXFW.SqlDB.MakeIcon(imageCollection32.Images["EMP_report.png"], 32, false) };
             FrmEMP_report.Show();
         }
+        #region - Reports -
+        private void navBarItemEmpXRepEmpAddress_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            xRep.XRepEmpAddress rep = new xRep.XRepEmpAddress();
+            Misc.Misc.ShowPrintPreview(rep);
+        }
+        private void navBarItemEmpXRepEmpagazat_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            XRepEmpagazatFrm frm = new XRepEmpagazatFrm() { MdiParent = this, Icon = FXFW.SqlDB.MakeIcon(imageCollection32.Images["EMP_report.png"], 32, false) };
+            frm.Show();
+        }
+        private void navBarItemEmpXRepEmpAll_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            XRepEmpAllFrm frm = new XRepEmpAllFrm() { MdiParent = this, Icon = FXFW.SqlDB.MakeIcon(imageCollection32.Images["EMP_report.png"], 32, false) };
+            frm.Show();
+        }
+        private void navBarItemEmpXRepEmpDetail_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            XRepEmpDetailFrm frm = new XRepEmpDetailFrm() { MdiParent = this, Icon = FXFW.SqlDB.MakeIcon(imageCollection32.Images["EMP_report.png"], 32, false) };
+            frm.Show();
+        }
         #endregion
+
         
+
+        
+        #endregion
+
     }
 
 }

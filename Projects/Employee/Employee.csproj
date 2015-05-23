@@ -44,6 +44,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <DeepSeaObfuscate>false</DeepSeaObfuscate>
     <DeepSeaKeyPassword>[Egy]FalseX</DeepSeaKeyPassword>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -61,16 +62,37 @@
     <Reference Include="DevExpress.BonusSkins.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Charts.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.Data.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Printing.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.RichEdit.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.Utils.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Utils.v12.2.UI, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.XtraBars.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraEditors.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -83,6 +105,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraNavBar.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v12.2.Extensions, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
     <Reference Include="FXFW, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -118,15 +149,19 @@
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Deployment">
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Drawing">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess">
       <Private>False</Private>
     </Reference>
@@ -139,6 +174,7 @@
     <Reference Include="System.Xml">
       <Private>False</Private>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\CodeFrm.cs">
@@ -146,6 +182,11 @@
     </Compile>
     <Compile Include="Code\CodeFrm.designer.cs">
       <DependentUpon>CodeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Datasource\dsRep.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRep.xsd</DependentUpon>
     </Compile>
     <Compile Include="Data\EMP_trainingFrm.cs">
       <SubType>Form</SubType>
@@ -225,6 +266,7 @@
     <Compile Include="Main\SplashFrm.designer.cs">
       <DependentUpon>SplashFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Misc.cs" />
     <Compile Include="Permission\RoleDetialFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +298,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Reports\RepGeneralFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +320,48 @@
     </Compile>
     <Compile Include="Data\Emp_MoaahelFrm.designer.cs">
       <DependentUpon>Emp_MoaahelFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRepEmpDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRepEmpDetail.Designer.cs">
+      <DependentUpon>XRepEmpDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRepEmpDetailFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XRep\XRepEmpDetailFrm.Designer.cs">
+      <DependentUpon>XRepEmpDetailFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRepEmpAllFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XRep\XRepEmpAllFrm.Designer.cs">
+      <DependentUpon>XRepEmpAllFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRepEmpAll.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRepEmpAll.Designer.cs">
+      <DependentUpon>XRepEmpAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRepEmpagazat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRepEmpagazat.Designer.cs">
+      <DependentUpon>XRepEmpagazat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRepEmpAddress.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRep\XRepEmpAddress.Designer.cs">
+      <DependentUpon>XRepEmpAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRep\XRepEmpagazatFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XRep\XRepEmpagazatFrm.Designer.cs">
+      <DependentUpon>XRepEmpagazatFrm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -347,6 +436,7 @@
     <EmbeddedResource Include="Permission\UsersFrm.resx">
       <DependentUpon>UsersFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -360,8 +450,45 @@
     <EmbeddedResource Include="Data\Emp_MoaahelFrm.resx">
       <DependentUpon>Emp_MoaahelFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRepEmpDetail.resx">
+      <DependentUpon>XRepEmpDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRepEmpDetailFrm.resx">
+      <DependentUpon>XRepEmpDetailFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRepEmpAllFrm.resx">
+      <DependentUpon>XRepEmpAllFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRepEmpAll.resx">
+      <DependentUpon>XRepEmpAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRepEmpagazat.resx">
+      <DependentUpon>XRepEmpagazat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRepEmpAddress.resx">
+      <DependentUpon>XRepEmpAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRep\XRepEmpagazatFrm.resx">
+      <DependentUpon>XRepEmpagazatFrm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Datasource\dsRep.xsc">
+      <DependentUpon>dsRep.xsd</DependentUpon>
+    </None>
+    <None Include="Datasource\dsRep.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRep.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasource\dsRep.xss">
+      <DependentUpon>dsRep.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Resources\Close.png" />
     <None Include="Resources\Code.png" />
     <None Include="Resources\Connection.png" />
